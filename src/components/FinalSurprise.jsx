@@ -105,6 +105,25 @@ export default function FinalSurprise({ onReplay, onPrev, onPlayClickSound }) {
           >
             Forever grateful for our friendship 🤍
           </p>
+
+          {/* Cute Tom & Jerry peaceful truce moment */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: '0.3rem 0.85rem',
+              background: 'rgba(255, 255, 255, 0.75)',
+              borderRadius: '999px',
+              border: '1px dashed var(--accent-taupe)',
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              color: 'var(--accent-taupe-dark)',
+              marginTop: '0.5rem',
+            }}
+          >
+            <span>🐱🤝🐭 Tom & Jerry Truce: All rivalry paused for the best birthday!</span>
+          </div>
         </motion.div>
 
         {/* Reveal Button (if not yet clicked) */}

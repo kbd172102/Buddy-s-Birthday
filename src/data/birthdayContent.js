@@ -1,38 +1,38 @@
 /**
  * Centralized Birthday Content Configuration
- * Customize all text, captions, memory cards, and letters here.
+ * Fully updated with playful Kumbhkaran, Buddy, and My Best Mittr refinements.
+ * All captions, cards, profile details, and letters are customizable here.
  */
 
 export const birthdayData = {
   recipient: {
-    name: "Bestie",
-    nickname: "You Idiot",
+    name: "My Best Mittr 🤍",
+    nickname: "Kumbhkaran",
     birthDate: {
       year: 2001,
-      month: 11, // November (1-indexed for human readability)
+      month: 11, // November
       day: 20,
     },
     celebrationYear: 2026,
   },
 
   scene01: {
-    tag: "A Secret Project",
-    heading: "HEY YOU... 👀",
+    tag: "A Little Surprise For You",
+    heading: "HEYYYY KUMBHKARANNN!! 👀",
     introLines: [
-      "So... I've been secretly working on something for you.",
-      "Before you ask, YES, I actually put some serious effort into this.",
-      "And no, it's not another boring birthday message.",
-      "Someone has spent their precious time creating something special for you. So you better appreciate it. 😂"
+      "Uthhhh jaaaooo! Someone has something to show you! 😂",
+      "Well well well... look who's here!",
+      "Ready for a little surprise, buddy?"
     ],
-    question: "Are you ready to see what I've made?",
-    btnYes: "YESSS! SHOW ME! ✨",
-    btnNo: "NOPE, I'M BUSY. 🙄",
+    question: "SHALL WE BEGIN THIS LITTLE ADVENTURE?",
+    btnYes: "YESSS, LET'S GOOOO! ✨",
+    btnNo: "NOPE, I'M SLEEPING. 😴",
 
     rejectionDrama: {
-      heading: "EXCUSE ME???? 😭",
-      subheading: "YOU CAN'T JUST REJECT MY HARD WORK LIKE THAT!",
-      body: "I HAVE SPENT MY PRECIOUS HOURS ON THIS! Weeks of planning, hours of coding, and infinite braincells went into this masterpiece! You are NOT walking away so easily! 🥊🧸",
-      btnAccept: "OKAY FINE, SHOW ME 😂"
+      heading: "OH HELLOOOO, KUMBHKARAN!",
+      subheading: "Birthday hai tumhara, attitude nahi dikhana! 😂",
+      body: "Ab chupchaap aage badho!",
+      btnAccept: "OKAY OKAY, I'M COMING! 🏃‍♂️💨"
     }
   },
 
@@ -47,7 +47,7 @@ export const birthdayData = {
         assetKey: "office01",
         title: "NON-STOP IRRITATING EACH OTHER",
         caption: "WORK WAS HARD. IRRITATING EACH OTHER WAS EASY.",
-        note: "Professional colleagues? Maybe. Peaceful colleagues? NEVER.",
+        note: "Professional colleagues? Maybe. Peaceful colleagues? NEVER. Pure Tom & Jerry energy every single day!",
         doodle: "paperclip",
         rotate: -2.5,
         colorTag: "#B8C4B0"
@@ -57,7 +57,7 @@ export const birthdayData = {
         assetKey: "snacks01",
         title: "THE SNACKS DEPARTMENT",
         caption: "BREAK TIME WAS OUR SPECIALIZATION.",
-        note: "Some meetings were important. Some snacks were MORE important.",
+        note: "Some meetings were important. Some snacks were MORE important. Snack detector Kumbhkaran on high alert!",
         doodle: "coffee",
         rotate: 3.2,
         colorTag: "#D8C6A5"
@@ -77,7 +77,7 @@ export const birthdayData = {
         assetKey: "office02",
         title: "RANDOM OFFICE MOMENTS",
         caption: "Some of the best memories were made during the most ordinary days.",
-        note: "Typing furiously just to look busy, pretending to understand Jira tickets, and 4 PM chai debates.",
+        note: "Typing furiously just to look busy, pretending to understand Jira tickets, and 4 PM chai debates with you, buddy.",
         doodle: "sparkle",
         rotate: 2.1,
         colorTag: "#E8DFD1"
@@ -87,7 +87,7 @@ export const birthdayData = {
         assetKey: "office03",
         title: "THE LITTLE THINGS",
         caption: "It's funny how the smallest everyday moments become the memories we miss the most.",
-        note: "From debug headaches to uncontrollable laughing fits across the room. Thank you for making work bearable.",
+        note: "From debug headaches to uncontrollable laughing fits across the room. Grateful for ordinary days made unforgettable with you, buddy.",
         doodle: "heart",
         rotate: -3.0,
         colorTag: "#B8C4B0"
@@ -95,58 +95,93 @@ export const birthdayData = {
     ]
   },
 
+  // Completely redesigned Page 3: THE OFFICIAL USER MANUAL
   scene03: {
-    tag: "Chapter 03 / Secret Envelopes",
-    heading: "A FEW THINGS I DON'T SAY OFTEN...",
-    subheading: "Four letters sealed with care. Click each envelope to unfold what's inside.",
-    letters: [
-      {
-        id: "letter-1",
-        title: "OPEN WHEN YOU NEED A SMILE",
-        badge: "Letter 01",
-        color: "#D8C6A5",
-        stamp: "☕",
-        content: `Just a reminder that somewhere in this world, there is someone who thinks you're a complete idiot but still likes having you around.
+    tag: "Chapter 03 / User Guide",
+    heading: "THE OFFICIAL USER MANUAL",
+    subheading: "How to handle this particular Kumbhkaran. 😂",
 
-Lucky you! 😂`
+    // Part A: Character Profile
+    profile: {
+      tagline: "CLASSIFIED SPECIMEN DOSSIER",
+      name: "My Best Mittr 🤍",
+      nickname: "Kumbhkaran",
+      category: "Rare Human Species",
+      availability: "Depends on sleeping schedule.",
+      specialFeature: "Unlimited bakchodi.",
+      warning: "May irritate you without any valid reason."
+    },
+
+    // Part B: Operating Instructions Cards
+    instructions: [
+      {
+        id: "card-1",
+        num: "01",
+        title: "SLEEP MODE 😴",
+        modeName: "Hibernation Routine",
+        badgeColor: "#C5D1D8",
+        icon: "moon",
+        description: "Handle with care. This human may enter sleep mode without prior notification.",
+        tip: "Pro Tip: Alarm clock is completely decorative. Requires high decibel shouting."
       },
       {
-        id: "letter-2",
-        title: "OPEN WHEN LIFE GETS DIFFICULT",
-        badge: "Letter 02",
-        color: "#B8C4B0",
-        stamp: "🌱",
-        content: `Life won't always go according to plan. There will be confusing days, unexpected turns and moments when you question yourself.
-
-But please never underestimate yourself. You're capable of so much more than you realize.
-
-Keep going. I'm cheering for you.`
+        id: "card-2",
+        num: "02",
+        title: "SNACK DETECTOR 🍟",
+        modeName: "Food Sensing Radar",
+        badgeColor: "#D8C6A5",
+        icon: "snack",
+        description: "Never underestimate his ability to notice food. Snacks have a special priority.",
+        tip: "Pro Tip: Mention samosas, chai, or treats to instantly reboot the system."
       },
       {
-        id: "letter-3",
-        title: "OPEN WHEN YOU MISS OUR OLD OFFICE DAYS",
-        badge: "Letter 03",
-        color: "#C5D1D8",
-        stamp: "📎",
-        content: `Remember those ordinary working days, the endless irritating, random conversations, snack breaks and team masti?
-
-We probably didn't realize how many beautiful memories we were making at that time.
-
-I hope we never stop creating moments like those.`
+        id: "card-3",
+        num: "03",
+        title: "IRRITATION MODE 😂",
+        modeName: "Tom & Jerry Protocol",
+        badgeColor: "#B8C4B0",
+        icon: "chase",
+        description: "May irritate people professionally. Especially people who know him well.",
+        tip: "Pro Tip: Do not attempt to reason. Just irritate him back twice as hard!"
       },
       {
-        id: "letter-4",
-        title: "OPEN WHEN YOU FORGET HOW SPECIAL YOU ARE",
-        badge: "Letter 04",
-        color: "#A99A88",
-        stamp: "🤍",
-        content: `You're genuinely one of those people I'm glad life introduced me to.
-
-I appreciate your presence, your madness, your kindness and the person you're becoming.
-
-Never stop believing in yourself.`
+        id: "card-4",
+        num: "04",
+        title: "BAKCHODI MODE 🚀",
+        modeName: "Peak Chaos Activated",
+        badgeColor: "#E8DFD1",
+        icon: "zap",
+        description: "Once activated, there is no guarantee of a peaceful environment.",
+        tip: "Pro Tip: Sit back, grab popcorn, and embrace the unlimited nonsense."
+      },
+      {
+        id: "card-5",
+        num: "05",
+        title: "FRIENDSHIP MODE 🤍",
+        modeName: "The Core Heart",
+        badgeColor: "#A99A88",
+        icon: "heart",
+        description: "Behind all the nonsense, there is a genuinely wonderful person who deserves all the happiness in the world.",
+        tip: "Pro Tip: Truly one of a kind. Keep him safe forever."
       }
-    ]
+    ],
+
+    // Part C: A Little Serious Now
+    seriousPart: {
+      heading: "BUT SERIOUSLY, BUDDY...",
+      subheading: "Past the manual, straight from the heart.",
+      message: `Jokes apart, I'm genuinely glad I got to know you.
+
+From our office days to all the random conversations and endless masti, you've been part of so many moments that I'll always remember.
+
+I hope life gives you everything you're working towards.
+
+Keep smiling, keep growing and never lose the person you are.
+
+You're not just a colleague from an old office anymore.
+
+You're my best mittr. 🤍`
+    }
   },
 
   scene04: {
@@ -160,11 +195,11 @@ Never stop believing in yourself.`
     timeline: [
       { year: 2001, title: "The Beginning", text: "The day our favourite human arrived into this world." },
       { year: 2005, title: "Growing Up", text: "Tiny feet, endless curiosity, and early mischievous signs." },
-      { year: 2010, title: "Childhood Memories", text: "School days, games, and discovering the simple joys." },
+      { year: 2010, title: "Childhood Memories", text: "School days, games, and discovering simple joys." },
       { year: 2015, title: "Teenage Adventures", text: "Big dreams beginning to form, energy and ambitions." },
       { year: 2020, title: "A New Chapter", text: "Stepping into code, software, college, and adulthood." },
-      { year: 2024, title: "New Experiences", text: "Bravery to pivot, explore new horizons, and grow." },
-      { year: 2026, title: "The 25th Birthday", text: "Quarter-century milestone of an absolute legend!" }
+      { year: 2024, title: "New Experiences", text: "Bravery to pivot, explore new horizons, and grow, buddy." },
+      { year: 2026, title: "The 25th Birthday", text: "Quarter-century milestone for our Kumbhkaran!" }
     ],
     birthdayCard2001: {
       title: "THE DAY OUR FAVOURITE HUMAN ARRIVED. 🤍",
@@ -173,7 +208,7 @@ Never stop believing in yourself.`
     },
     birthdayCard2026: {
       title: "20 NOVEMBER 2026",
-      subtitle: "25 YEARS OF BEING YOU!",
+      subtitle: "25 YEARS OF BEING YOU, BUDDY!",
       note: "AND STILL CAUSING TROUBLE. 😂 Quarter of a century accomplished!"
     },
     birthdayCardDefault: {
@@ -195,14 +230,14 @@ You've got so much ahead of you.
 
 Keep exploring, keep learning, keep growing and never stop believing in yourself.
 
-I'm genuinely rooting for you.`
+Always rooting for you, buddy.`
     },
     partB: {
       heading: "HAPPIEST BIRTHDAYYYYY!!",
       subheading: "IT'S YOUR DAY!",
-      prompt: "Make a wish before the candles disappear.",
+      prompt: "Make a wish before the candles disappear, Kumbhkaran!",
       btnWish: "MAKE A WISH ✨",
-      letterTitle: "A Birthday Letter Just For You",
+      letterTitle: "A Birthday Letter For My Best Mittr",
       letterBody: `To my favourite human,
 
 Another year older, another year wiser... although I'm still waiting for the wiser part. 😂
@@ -250,8 +285,8 @@ No matter where life takes us, I hope we never lose the ability to laugh togethe
 
 Here's to all the memories we've made and all the madness still waiting for us.
 
-HAPPY BIRTHDAY, BESTIE. 🤍`,
-    footerQuote: "MADE WITH LOVE, A LITTLE MADNESS, AND MANY HOURS OF CODING.",
+HAPPY BIRTHDAY, MY BEST MITTR. 🤍`,
+    footerQuote: "MADE WITH LOVE, A LITTLE MADNESS & UNLIMITED BAKCHODI.",
     footerSignature: "From your favourite human and permanent headache.",
     replayBtn: "REPLAY THE SURPRISE ↺"
   }

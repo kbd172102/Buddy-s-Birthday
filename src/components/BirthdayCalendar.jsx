@@ -602,7 +602,7 @@ export default function BirthdayCalendar({ onNext, onPrev, onPlayClickSound }) {
                 onPrev();
               }}
             >
-              <ArrowLeft size={16} /> Previous
+              <ArrowLeft size={16} /> Back to User Manual
             </motion.button>
           )}
 

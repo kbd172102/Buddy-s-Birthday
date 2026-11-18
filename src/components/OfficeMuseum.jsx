@@ -76,7 +76,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
             border: '1px dashed var(--border-medium)',
             padding: '0.65rem 1.4rem',
             borderRadius: '8px',
-            marginBottom: '2.5rem',
+            marginBottom: '1rem',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.5rem',
@@ -93,6 +93,25 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
           >
             {content.description}
           </span>
+        </motion.div>
+
+        {/* Playful Cat & Mouse Office Note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '0.8rem',
+            color: 'var(--accent-taupe-dark)',
+            fontWeight: 600,
+            marginBottom: '2.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+          }}
+        >
+          <span>🐱⚡🐭 Desk Policy: When deadlines hit, Tom & Jerry mode activates automatically!</span>
         </motion.div>
 
         {/* Scrapbook Polaroid Grid */}
@@ -156,7 +175,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
               onNext();
             }}
           >
-            Continue to Letters <ArrowRight size={16} />
+            Open User Manual <ArrowRight size={16} />
           </motion.button>
         </div>
       </div>

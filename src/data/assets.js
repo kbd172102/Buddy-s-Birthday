@@ -7,34 +7,64 @@
 export const ASSET_BASE = '/assets';
 
 export const assets = {
-  // Teddy Bear Animations & Illustrations
+  // Teddy Bear Animations & Illustrations (Milk & Mocha / White & Brown aesthetic)
   teddyWelcome: {
     src: `${ASSET_BASE}/teddy-welcome.gif`,
     alt: "Teddy welcoming you playfully",
     type: "image",
     fallbackType: "teddy-welcome",
-    caption: "A very excited teddy waiting for you!"
+    caption: "A very excited teddy waiting for Kumbhkaran!"
   },
   teddyFight: {
     src: `${ASSET_BASE}/teddy-fight.gif`,
     alt: "Playful teddy bears wrestling",
     type: "image",
     fallbackType: "teddy-fight",
-    caption: "Playful revenge for saying NO!"
+    caption: "Playful fight because you tried to sleep!"
   },
   teddyHappy: {
     src: `${ASSET_BASE}/teddy-happy.gif`,
     alt: "Teddy jumping for joy",
     type: "image",
     fallbackType: "teddy-happy",
-    caption: "Yay! Let's celebrate!"
+    caption: "Yay! Let's celebrate, buddy!"
   },
   teddyHug: {
     src: `${ASSET_BASE}/teddy-hug.gif`,
-    alt: "Two teddy bears hugging warmly",
+    alt: "Soft white and caramel teddy bears cuddling",
     type: "image",
     fallbackType: "teddy-hug",
     caption: "Warm hug between best friends"
+  },
+  teddyTogether: {
+    src: `${ASSET_BASE}/teddy-together.png`,
+    alt: "White and caramel teddy bears sitting together",
+    type: "image",
+    fallbackType: "teddy-together",
+    caption: "Best friends sitting together"
+  },
+
+  // Tom & Jerry Playful Rivalry References
+  tomJerryChase: {
+    src: `${ASSET_BASE}/tom-jerry-chase.gif`,
+    alt: "Tom and Jerry playful chase",
+    type: "image",
+    fallbackType: "tom-jerry-chase",
+    caption: "Unlimited cat-and-mouse banter"
+  },
+  tomJerryOffice: {
+    src: `${ASSET_BASE}/tom-jerry-office.gif`,
+    alt: "Tom and Jerry office mischief",
+    type: "image",
+    fallbackType: "tom-jerry-office",
+    caption: "Irritating each other like Tom & Jerry"
+  },
+  tomJerryPeace: {
+    src: `${ASSET_BASE}/tom-jerry-peace.gif`,
+    alt: "Tom and Jerry peaceful truce",
+    type: "image",
+    fallbackType: "tom-jerry-peace",
+    caption: "Calling a truce after all the mischief"
   },
 
   // Office Memories & Scrapbook Polaroids

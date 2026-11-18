@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles, Moon } from 'lucide-react';
 import { birthdayData } from '../data/birthdayContent';
 import IllustratedTeddy from './IllustratedTeddy';
 import TeddyFight from './TeddyFight';
@@ -16,10 +16,9 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
     setTeddyState('happy');
     setIsTransitioning(true);
 
-    // Give time to enjoy the happy jumping teddy before flipping the page
     setTimeout(() => {
       onNext();
-    }, 1300);
+    }, 1200);
   };
 
   const handleNo = () => {
@@ -32,13 +31,13 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
     setTeddyState('happy');
     setTimeout(() => {
       onNext();
-    }, 800);
+    }, 700);
   };
 
   return (
     <section className="scene-container">
       <div className="scene-inner">
-        {/* Subtle Journal Tag */}
+        {/* Playful Tag */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,11 +48,34 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
           <span>{content.tag}</span>
         </motion.div>
 
+        {/* Small Tom & Jerry Playful Chase Tease Banner */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.15 }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.45rem',
+            padding: '0.25rem 0.8rem',
+            background: 'rgba(216, 198, 165, 0.22)',
+            borderRadius: '999px',
+            border: '1px dashed var(--accent-champagne-dark)',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            color: 'var(--text-dark)',
+            marginBottom: '1rem',
+          }}
+        >
+          <span>🐱💨 🐭</span>
+          <span>Tom & Jerry Mode: Active</span>
+        </motion.div>
+
         {/* Two-Column Scrapbook Layout on Desktop / Stacked on Mobile */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
             gap: '2.5rem',
             alignItems: 'center',
             width: '100%',
@@ -61,7 +83,7 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
             marginTop: '0.5rem',
           }}
         >
-          {/* Left Column: Animated Teddy Bear */}
+          {/* Left Column: Soft Teddy Bear */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -110,7 +132,7 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
                   marginTop: '0.75rem',
                 }}
               >
-                {teddyState === 'happy' ? "YAYYY! HE SAID YES! 🎉" : "Waiting for your answer... 🤍"}
+                {teddyState === 'happy' ? "YAYYY! HE'S AWAKE! 🎉" : "Kumbhkaran, wake up! 🤍"}
               </p>
             </div>
           </motion.div>
@@ -145,7 +167,7 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
                 gap: '0.75rem',
                 marginBottom: '1.75rem',
                 color: 'var(--text-muted)',
-                fontSize: '1.02rem',
+                fontSize: '1.05rem',
                 lineHeight: 1.6,
               }}
             >
@@ -161,7 +183,7 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
               style={{
                 fontFamily: 'var(--font-serif)',
                 fontStyle: 'italic',
-                fontSize: '1.2rem',
+                fontSize: '1.18rem',
                 color: 'var(--text-dark)',
                 marginBottom: '1.5rem',
                 fontWeight: 600,
@@ -199,14 +221,14 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
                 disabled={isTransitioning}
                 style={{ flex: '1 1 180px' }}
               >
-                {content.btnNo}
+                <Moon size={15} /> {content.btnNo}
               </motion.button>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Playful Rejection Drama Modal */}
+      {/* Playful Rejection Drama Modal (using user's provided GIF) */}
       <AnimatePresence>
         {showFightModal && (
           <TeddyFight
