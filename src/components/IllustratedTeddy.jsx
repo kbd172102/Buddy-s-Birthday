@@ -1,69 +1,65 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { assets } from '../data/assets';
+
+/**
+ * CatWelcome Component
+ * Renders the supplied Tenor animated cat GIF with graceful fallback to external URL.
+ */
+function CatWelcome({ size = 240, className = '' }) {
+  const catLocalSrc = assets.helloCat?.src || '/assets/hello-cat.gif';
+  const catFallbackSrc = assets.helloCat?.fallbackSrc || 'https://media1.tenor.com/m/k4q_fhUFnX0AAAAd/cat.gif';
+  const [currentSrc, setCurrentSrc] = useState(catLocalSrc);
+
+  return (
+    <div
+      className={`cat-illustration-container ${className}`}
+      style={{
+        width: '100%',
+        maxWidth: size,
+        height: size,
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+    >
+      <img
+        src={currentSrc}
+        alt="Animated cat playfully saying hello"
+        loading="eager"
+        onError={() => {
+          if (currentSrc !== catFallbackSrc) {
+            setCurrentSrc(catFallbackSrc);
+          }
+        }}
+        style={{
+          maxWidth: '100%',
+          height: 'auto',
+          maxHeight: size,
+          objectFit: 'contain',
+          borderRadius: '16px',
+          display: 'block',
+          margin: '0 auto',
+        }}
+      />
+    </div>
+  );
+}
 
 /**
  * Illustrated Teddy Component
  * Aesthetic Reference: One soft creamy white bear and one caramel-brown bear
  * Chubby, rounded proportions, small cute ears, soft blush, and gentle expressions.
- * Prioritizes user's actual image/GIF assets when available.
  */
 export default function IllustratedTeddy({ variant = 'welcome', size = 240, className = '' }) {
-  const [hasCustomGif, setHasCustomGif] = useState(false);
-
-  // Check if a matching custom GIF exists in public/assets/
-  const assetMap = {
-    fight: assets.teddyFight?.src,
-    welcome: assets.helloCat?.src || '/assets/hello-cat.gif',
-    happy: assets.teddyHappy?.src,
-    hug: assets.teddyHug?.src,
-    together: assets.teddyTogether?.src,
-  };
-
-  const targetSrc = assetMap[variant];
-
-  useEffect(() => {
-    if (!targetSrc) {
-      setHasCustomGif(false);
-      return;
-    }
-    const img = new Image();
-    img.src = targetSrc;
-    img.onload = () => setHasCustomGif(true);
-    img.onerror = () => setHasCustomGif(false);
-  }, [targetSrc]);
-
-  // If user supplied GIF exists (e.g. teddy-fight.gif), render as clean <img>!
-  if (hasCustomGif && targetSrc) {
-    return (
-      <div
-        className={`teddy-gif-container ${className}`}
-        style={{
-          width: '100%',
-          maxWidth: size * 1.2,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: '0 auto',
-        }}
-      >
-        <img
-          src={targetSrc}
-          alt={`Teddy ${variant}`}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            maxHeight: size,
-            objectFit: 'contain',
-            borderRadius: '14px',
-            display: 'block',
-          }}
-        />
-      </div>
-    );
+  // Variant: 'welcome' -> Renders the supplied Tenor animated cat GIF
+  if (variant === 'welcome') {
+    return <CatWelcome size={size} className={className} />;
   }
 
-  // Fallback: If variant is 'fight' and custom GIF hasn't loaded, directly render the downloaded GIF file!
+  // Variant: 'fight' -> Renders the downloaded teddy fight GIF
   if (variant === 'fight') {
     return (
       <div
@@ -78,7 +74,7 @@ export default function IllustratedTeddy({ variant = 'welcome', size = 240, clas
         }}
       >
         <img
-          src="/assets/teddy-fight.gif"
+          src={assets.teddyFight?.src || '/assets/teddy-fight.gif'}
           alt="Teddy fight animation"
           style={{
             maxWidth: '100%',
@@ -271,44 +267,6 @@ export default function IllustratedTeddy({ variant = 'welcome', size = 240, clas
     );
   }
 
-  // DEFAULT: 'welcome' (Supplied Tenor Animated Cat GIF)
-  const catLocalSrc = assets.helloCat?.src || '/assets/hello-cat.gif';
-  const catFallbackSrc = assets.helloCat?.fallbackSrc || 'https://media1.tenor.com/m/k4q_fhUFnX0AAAAd/cat.gif';
-  const [currentCatSrc, setCurrentCatSrc] = useState(catLocalSrc);
-
-  return (
-    <div
-      className={`cat-illustration-container ${className}`}
-      style={{
-        width: '100%',
-        maxWidth: size,
-        height: size,
-        margin: '0 auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-      }}
-    >
-      <img
-        src={currentCatSrc}
-        alt="Animated cat playfully saying hello"
-        loading="eager"
-        onError={() => {
-          if (currentCatSrc !== catFallbackSrc) {
-            setCurrentCatSrc(catFallbackSrc);
-          }
-        }}
-        style={{
-          maxWidth: '100%',
-          height: 'auto',
-          maxHeight: size,
-          objectFit: 'contain',
-          borderRadius: '16px',
-          display: 'block',
-          margin: '0 auto',
-        }}
-      />
-    </div>
-  );
+  // Fallback default: CatWelcome
+  return <CatWelcome size={size} className={className} />;
 }
