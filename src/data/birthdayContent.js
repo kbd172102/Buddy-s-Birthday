@@ -41,6 +41,11 @@ export const birthdayData = {
     heading: "THE OFFICE CHRONICLES",
     subheading: "Where productivity met unlimited nonsense.",
     description: "Click any polaroid to take a closer trip down memory lane.",
+    nonstopMessages: {
+      caption: "WHEN I SEND YOU 27 MESSAGES AND YOU HAVEN'T REPLIED TO EVEN ONE. 🙄",
+      handwritten: "Hello??? Kumbhkaran??? Are you alive???",
+      note: "Seen: 2 hours ago. Reply status: Pending forever 😂"
+    },
     memories: [
       {
         id: "irritate",
@@ -142,6 +147,7 @@ export const birthdayData = {
         badgeColor: "#B8C4B0",
         icon: "chase",
         description: "May irritate people professionally. Especially people who know him well.",
+        gifCaption: "WHEN I IRRITATE YOU, BUT YOU KNOW YOU DESERVE IT. 😂",
         tip: "Pro Tip: Do not attempt to reason. Just irritate him back twice as hard!"
       },
       {
@@ -170,6 +176,7 @@ export const birthdayData = {
     seriousPart: {
       heading: "BUT SERIOUSLY, BUDDY...",
       subheading: "Past the manual, straight from the heart.",
+      hugCaption: "OKAY FINE, ENOUGH FIGHTING. HERE'S A HUG, BUDDY. 🤍",
       message: `Jokes apart, I'm genuinely glad I got to know you.
 
 From our office days to all the random conversations and endless masti, you've been part of so many moments that I'll always remember.
@@ -237,6 +244,8 @@ Always rooting for you, buddy.`
       subheading: "IT'S YOUR DAY!",
       prompt: "Make a wish before the candles disappear, Kumbhkaran!",
       btnWish: "MAKE A WISH ✨",
+      celebrationDanceHeading: "WE SURVIVED ANOTHER YEAR OF EACH OTHER!",
+      celebrationDanceSub: "LET'S GOOOOOOO! 😂🤍",
       letterTitle: "A Birthday Letter For My Best Mittr",
       letterBody: `To my favourite human,
 
@@ -271,6 +280,7 @@ HAPPY BIRTHDAY, YOU IDIOT! 🤍`
     heading: "UNDER A BLANKET OF STARS",
     subheading: "Before you close this little journal...",
     btnReveal: "ONE LAST THING... 🤍",
+    thankYouCaption: "THANK YOU FOR BEING MY BEST MITTR! 🤍",
     finalLetter: `Among all the people life introduces us to, some become really special without us even realizing when it happened.
 
 I'm genuinely glad our paths crossed.

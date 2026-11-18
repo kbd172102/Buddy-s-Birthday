@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Sparkles, PartyPopper, Cake, ArrowRight, ArrowLeft, Heart } from 'lucide-react';
 import { birthdayData } from '../data/birthdayContent';
+import { assets } from '../data/assets';
 import CareerJourney from './CareerJourney';
 import IllustratedTeddy from './IllustratedTeddy';
 import { playCandleBlowSound, playCelebrationSound } from '../utils/soundEffects';
@@ -358,15 +359,63 @@ export default function BirthdayCelebration({ onNext, onPrev, onPlayClickSound, 
                 </p>
               </div>
 
-              {/* Cute Jumping Teddy celebratory badge */}
+              {/* Joyful Celebration Dancing Teddies GIF */}
               <div
                 style={{
                   display: 'flex',
-                  justifyContent: 'center',
-                  marginTop: '1.75rem',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  marginTop: '2rem',
+                  background: 'var(--bg-cream)',
+                  borderRadius: '16px',
+                  padding: '1.25rem 1.5rem',
+                  border: '1px solid var(--border-medium)',
+                  textAlign: 'center',
+                  maxWidth: '360px',
+                  margin: '2rem auto 0 auto',
+                  boxShadow: 'var(--shadow-paper)',
                 }}
               >
-                <IllustratedTeddy variant="happy" size={140} />
+                <img
+                  src={assets.teddyDance?.src || '/assets/teddy-dance.gif'}
+                  alt="Teddies dancing celebration"
+                  loading="lazy"
+                  onError={(e) => {
+                    if (e.target.src !== assets.teddyDance?.fallbackSrc) {
+                      e.target.src = assets.teddyDance?.fallbackSrc;
+                    }
+                  }}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    maxHeight: '180px',
+                    objectFit: 'contain',
+                    borderRadius: '12px',
+                    display: 'block',
+                  }}
+                />
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: '1.2rem',
+                    color: 'var(--text-dark)',
+                    marginTop: '0.65rem',
+                    marginBottom: '0.2rem',
+                  }}
+                >
+                  {content.celebrationDanceHeading || "WE SURVIVED ANOTHER YEAR OF EACH OTHER!"}
+                </h4>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-hand)',
+                    fontSize: '1.35rem',
+                    color: 'var(--accent-taupe-dark)',
+                    margin: 0,
+                    fontWeight: 600,
+                  }}
+                >
+                  {content.celebrationDanceSub || "LET'S GOOOOOOO! 😂🤍"}
+                </p>
               </div>
             </motion.div>
           )}

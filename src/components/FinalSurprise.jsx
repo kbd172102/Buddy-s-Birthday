@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Star, RotateCcw, Heart, Sparkles, ArrowLeft } from 'lucide-react';
 import { birthdayData } from '../data/birthdayContent';
+import { assets } from '../data/assets';
 import IllustratedTeddy from './IllustratedTeddy';
 
 export default function FinalSurprise({ onReplay, onPrev, onPlayClickSound }) {
@@ -203,12 +204,61 @@ export default function FinalSurprise({ onReplay, onPrev, onPlayClickSound }) {
                 </p>
               </div>
 
+              {/* Thank-You Bear Animated GIF */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  marginTop: '1.75rem',
+                  background: 'var(--bg-cream)',
+                  borderRadius: '16px',
+                  padding: '1.25rem 1.5rem',
+                  border: '1px solid var(--border-medium)',
+                  textAlign: 'center',
+                  maxWidth: '320px',
+                  margin: '1.75rem auto 0 auto',
+                  boxShadow: 'var(--shadow-paper)',
+                }}
+              >
+                <img
+                  src={assets.thankYouBear?.src || '/assets/thank-you-bear.gif'}
+                  alt="Thank you bear sticker"
+                  loading="lazy"
+                  onError={(e) => {
+                    if (e.target.src !== assets.thankYouBear?.fallbackSrc) {
+                      e.target.src = assets.thankYouBear?.fallbackSrc;
+                    }
+                  }}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    maxHeight: '170px',
+                    objectFit: 'contain',
+                    borderRadius: '12px',
+                    display: 'block',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'var(--font-hand)',
+                    fontSize: '1.35rem',
+                    color: 'var(--text-dark)',
+                    marginTop: '0.65rem',
+                    marginBottom: 0,
+                    fontWeight: 700,
+                  }}
+                >
+                  "{content.thankYouCaption || "THANK YOU FOR BEING MY BEST MITTR! 🤍"}"
+                </p>
+              </div>
+
               {/* Heart Stamp */}
               <div
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
-                  marginTop: '1.75rem',
+                  marginTop: '1.5rem',
                 }}
               >
                 <span style={{ fontSize: '2rem' }}>🤍</span>

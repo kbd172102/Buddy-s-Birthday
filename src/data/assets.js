@@ -78,6 +78,44 @@ export const assets = {
     caption: "Calling a truce after all the mischief"
   },
 
+  // Five Personal Tenor GIFs
+  nonstopMessages: {
+    src: `${ASSET_BASE}/nonstop-messages.gif`,
+    fallbackSrc: 'https://media1.tenor.com/m/HHWJFGqXnt4AAAAd/mikrene.gif',
+    alt: "Sending nonstop messages",
+    type: "image",
+    caption: "WHEN I SEND YOU 27 MESSAGES AND YOU HAVEN'T REPLIED TO EVEN ONE. 🙄",
+    handwritten: "Hello??? Kumbhkaran??? Are you alive???"
+  },
+  irritationGif: {
+    src: `${ASSET_BASE}/irritation.gif`,
+    fallbackSrc: 'https://media.tenor.com/T-v1xYm8M0UAAAAj/mad.gif',
+    alt: "Playful irritation",
+    type: "image",
+    caption: "WHEN I IRRITATE YOU, BUT YOU KNOW YOU DESERVE IT. 😂"
+  },
+  buddyHug: {
+    src: `${ASSET_BASE}/buddy-hug.gif`,
+    fallbackSrc: 'https://media1.tenor.com/m/HFVj221IoRAAAAAd/dance-kiss-video.gif',
+    alt: "Warm cute hug between buddies",
+    type: "image",
+    caption: "OKAY FINE, ENOUGH FIGHTING. HERE'S A HUG, BUDDY. 🤍"
+  },
+  thankYouBear: {
+    src: `${ASSET_BASE}/thank-you-bear.gif`,
+    fallbackSrc: 'https://media1.tenor.com/m/xPDDnUtYMS0AAAAC/line-sticker-thank-you-sticker.gif',
+    alt: "Thank you bear sticker",
+    type: "image",
+    caption: "THANK YOU FOR BEING MY BEST MITTR! 🤍"
+  },
+  teddyDance: {
+    src: `${ASSET_BASE}/teddy-dance.gif`,
+    fallbackSrc: 'https://media.tenor.com/vhY5yLMC9PAAAAAj/milk-and.gif',
+    alt: "Both teddies dancing celebrating",
+    type: "image",
+    caption: "WE SURVIVED ANOTHER YEAR OF EACH OTHER! LET'S GOOOOOOO! 😂🤍"
+  },
+
   // Office Memories & Scrapbook Polaroids
   office01: {
     src: `${ASSET_BASE}/office-01.jpg`,

@@ -15,6 +15,7 @@ import {
   ShieldAlert
 } from 'lucide-react';
 import { birthdayData } from '../data/birthdayContent';
+import { assets } from '../data/assets';
 import IllustratedTeddy from './IllustratedTeddy';
 
 export default function UserManual({ onNext, onPrev, onPlayClickSound }) {
@@ -433,6 +434,55 @@ export default function UserManual({ onNext, onPrev, onPlayClickSound }) {
                           {item.description}
                         </p>
 
+                        {/* Irritation GIF for Card 3 */}
+                        {item.id === 'card-3' && (
+                          <div
+                            style={{
+                              display: 'flex',
+                              flexDirection: 'column',
+                              alignItems: 'center',
+                              margin: '0.85rem auto',
+                              background: 'var(--bg-cream)',
+                              padding: '0.85rem',
+                              borderRadius: '12px',
+                              border: '1px solid var(--border-medium)',
+                              maxWidth: '260px',
+                            }}
+                          >
+                            <img
+                              src={assets.irritationGif?.src || '/assets/irritation.gif'}
+                              alt="Irritation mode GIF"
+                              loading="lazy"
+                              onError={(e) => {
+                                if (e.target.src !== assets.irritationGif?.fallbackSrc) {
+                                  e.target.src = assets.irritationGif?.fallbackSrc;
+                                }
+                              }}
+                              style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                maxHeight: '110px',
+                                objectFit: 'contain',
+                                borderRadius: '8px',
+                                display: 'block',
+                              }}
+                            />
+                            <p
+                              style={{
+                                fontFamily: 'var(--font-hand)',
+                                fontSize: '1.18rem',
+                                color: 'var(--text-dark)',
+                                textAlign: 'center',
+                                marginTop: '0.45rem',
+                                fontWeight: 600,
+                                lineHeight: 1.25,
+                              }}
+                            >
+                              "{item.gifCaption || "WHEN I IRRITATE YOU, BUT YOU KNOW YOU DESERVE IT. 😂"}"
+                            </p>
+                          </div>
+                        )}
+
                         <div
                           style={{
                             background: 'var(--bg-cream)',
@@ -528,6 +578,54 @@ export default function UserManual({ onNext, onPrev, onPlayClickSound }) {
               }}
             >
               "{content.seriousPart.subheading}"
+            </p>
+          </div>
+
+          {/* Cute Buddy Hug Transition GIF */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              margin: '0 auto 2rem auto',
+              background: 'var(--bg-cream)',
+              borderRadius: '16px',
+              padding: '1.25rem 1.5rem',
+              border: '1px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-paper)',
+              maxWidth: '380px',
+              textAlign: 'center',
+            }}
+          >
+            <img
+              src={assets.buddyHug?.src || '/assets/buddy-hug.gif'}
+              alt="Cute buddy hug"
+              loading="lazy"
+              onError={(e) => {
+                if (e.target.src !== assets.buddyHug?.fallbackSrc) {
+                  e.target.src = assets.buddyHug?.fallbackSrc;
+                }
+              }}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                maxHeight: '190px',
+                objectFit: 'contain',
+                borderRadius: '12px',
+                display: 'block',
+              }}
+            />
+            <p
+              style={{
+                fontFamily: 'var(--font-hand)',
+                fontSize: '1.35rem',
+                color: 'var(--text-dark)',
+                marginTop: '0.65rem',
+                lineHeight: 1.3,
+                fontWeight: 600,
+              }}
+            >
+              "{content.seriousPart?.hugCaption || "OKAY FINE, ENOUGH FIGHTING. HERE'S A HUG, BUDDY. 🤍"}"
             </p>
           </div>
 
