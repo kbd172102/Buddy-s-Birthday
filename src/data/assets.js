@@ -7,13 +7,24 @@
 export const ASSET_BASE = '/assets';
 
 export const assets = {
+  // Welcome Screen Animated Cat GIF (Supplied Tenor GIF)
+  helloCat: {
+    src: `${ASSET_BASE}/hello-cat.gif`,
+    fallbackSrc: 'https://media1.tenor.com/m/k4q_fhUFnX0AAAAd/cat.gif',
+    alt: "Animated cat playfully saying hello",
+    type: "image",
+    fallbackType: "hello-cat",
+    caption: "A very excited cat waiting for Kumbhkaran!"
+  },
+
   // Teddy Bear Animations & Illustrations (Milk & Mocha / White & Brown aesthetic)
   teddyWelcome: {
-    src: `${ASSET_BASE}/teddy-welcome.gif`,
-    alt: "Teddy welcoming you playfully",
+    src: `${ASSET_BASE}/hello-cat.gif`,
+    fallbackSrc: 'https://media1.tenor.com/m/k4q_fhUFnX0AAAAd/cat.gif',
+    alt: "Animated cat playfully saying hello",
     type: "image",
-    fallbackType: "teddy-welcome",
-    caption: "A very excited teddy waiting for Kumbhkaran!"
+    fallbackType: "hello-cat",
+    caption: "A very excited cat waiting for Kumbhkaran!"
   },
   teddyFight: {
     src: `${ASSET_BASE}/teddy-fight.gif`,

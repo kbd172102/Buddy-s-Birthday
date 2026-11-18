@@ -67,8 +67,8 @@ export default function WelcomeScreen({ onNext, onPlayClickSound }) {
             marginBottom: '1rem',
           }}
         >
-          <span>🐱💨 🐭</span>
-          <span>Tom & Jerry Mode: Active</span>
+          {/* <span>🐱💨 🐭</span>
+          <span>Tom & Jerry Mode: Active</span> */}
         </motion.div>
 
         {/* Two-Column Scrapbook Layout on Desktop / Stacked on Mobile */}

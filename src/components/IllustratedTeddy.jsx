@@ -14,7 +14,7 @@ export default function IllustratedTeddy({ variant = 'welcome', size = 240, clas
   // Check if a matching custom GIF exists in public/assets/
   const assetMap = {
     fight: assets.teddyFight?.src,
-    welcome: assets.teddyWelcome?.src,
+    welcome: assets.helloCat?.src || '/assets/hello-cat.gif',
     happy: assets.teddyHappy?.src,
     hug: assets.teddyHug?.src,
     together: assets.teddyTogether?.src,
@@ -271,95 +271,44 @@ export default function IllustratedTeddy({ variant = 'welcome', size = 240, clas
     );
   }
 
-  // DEFAULT: 'welcome' (Soft chubby white & caramel bear duo waiting playfully)
+  // DEFAULT: 'welcome' (Supplied Tenor Animated Cat GIF)
+  const catLocalSrc = assets.helloCat?.src || '/assets/hello-cat.gif';
+  const catFallbackSrc = assets.helloCat?.fallbackSrc || 'https://media1.tenor.com/m/k4q_fhUFnX0AAAAd/cat.gif';
+  const [currentCatSrc, setCurrentCatSrc] = useState(catLocalSrc);
+
   return (
     <div
-      className={`teddy-illustration-container ${className}`}
-      style={{ width: size, height: size, margin: '0 auto' }}
+      className={`cat-illustration-container ${className}`}
+      style={{
+        width: '100%',
+        maxWidth: size,
+        height: size,
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
     >
-      <svg viewBox="0 0 240 240" width="100%" height="100%" style={{ overflow: 'visible' }}>
-        <defs>
-          <linearGradient id="whiteBearW" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="100%" stopColor="#F5EFE6" />
-          </linearGradient>
-          <linearGradient id="caramelBearW" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#D5AF86" />
-            <stop offset="100%" stopColor="#BE956B" />
-          </linearGradient>
-        </defs>
-
-        {/* Floor Shadow */}
-        <ellipse cx="120" cy="220" rx="65" ry="12" fill="rgba(81, 72, 63, 0.08)" />
-
-        {/* Sparkles */}
-        <motion.g
-          animate={{ y: [-3, 3, -3], opacity: [0.6, 1, 0.6] }}
-          transition={{ repeat: Infinity, duration: 1.6 }}
-        >
-          <text x="35" y="70" fontSize="18" fill="#D8C6A5">✨</text>
-          <text x="180" y="80" fontSize="16" fill="#B8C4B0">⭐</text>
-        </motion.g>
-
-        {/* Soft Bear Waving Playfully */}
-        <motion.g
-          animate={{ y: [0, -4, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        >
-          {/* Main Chubby Body */}
-          <ellipse cx="120" cy="150" rx="52" ry="45" fill="url(#whiteBearW)" />
-          <ellipse cx="120" cy="154" rx="34" ry="28" fill="#FFFFFF" />
-
-          {/* Left Arm Resting */}
-          <ellipse cx="68" cy="148" rx="16" ry="26" transform="rotate(18 68 148)" fill="url(#whiteBearW)" />
-
-          {/* Right Arm Waving Playfully */}
-          <motion.g
-            animate={{ rotate: [-6, 20, -6] }}
-            transition={{ repeat: Infinity, duration: 0.9, ease: 'easeInOut' }}
-            style={{ transformOrigin: '165px 125px' }}
-          >
-            <ellipse cx="170" cy="120" rx="16" ry="26" transform="rotate(38 170 120)" fill="url(#whiteBearW)" />
-            <circle cx="178" cy="106" r="9" fill="#FFFFFF" />
-          </motion.g>
-
-          {/* Feet */}
-          <ellipse cx="92" cy="192" rx="20" ry="15" fill="url(#whiteBearW)" />
-          <circle cx="92" cy="192" r="9" fill="#FCECE7" />
-          <ellipse cx="148" cy="192" rx="20" ry="15" fill="url(#whiteBearW)" />
-          <circle cx="148" cy="192" r="9" fill="#FCECE7" />
-
-          {/* Head */}
-          <circle cx="120" cy="90" r="40" fill="url(#whiteBearW)" />
-
-          {/* Cute Round Ears */}
-          <circle cx="88" cy="60" r="14" fill="url(#whiteBearW)" />
-          <circle cx="88" cy="60" r="7" fill="#FCECE7" />
-          <circle cx="152" cy="60" r="14" fill="url(#whiteBearW)" />
-          <circle cx="152" cy="60" r="7" fill="#FCECE7" />
-
-          {/* Snout */}
-          <ellipse cx="120" cy="98" rx="17" ry="12" fill="#FFFFFF" />
-          <ellipse cx="120" cy="94" rx="6" ry="4.5" fill="#51483F" />
-          <path d="M 113 102 Q 120 109 127 102" fill="none" stroke="#51483F" strokeWidth="2.4" strokeLinecap="round" />
-
-          {/* Blinking Eyes */}
-          <motion.g
-            animate={{ scaleY: [1, 1, 0.1, 1] }}
-            transition={{ repeat: Infinity, duration: 3.5, times: [0, 0.92, 0.95, 1] }}
-            style={{ transformOrigin: '120px 80px' }}
-          >
-            <circle cx="106" cy="82" r="5" fill="#51483F" />
-            <circle cx="108" cy="80" r="1.8" fill="#FFFFFF" />
-            <circle cx="134" cy="82" r="5" fill="#51483F" />
-            <circle cx="136" cy="80" r="1.8" fill="#FFFFFF" />
-          </motion.g>
-
-          {/* Soft Blushing Cheeks */}
-          <circle cx="98" cy="94" r="6" fill="#F3ABA0" opacity="0.65" />
-          <circle cx="142" cy="94" r="6" fill="#F3ABA0" opacity="0.65" />
-        </motion.g>
-      </svg>
+      <img
+        src={currentCatSrc}
+        alt="Animated cat playfully saying hello"
+        loading="eager"
+        onError={() => {
+          if (currentCatSrc !== catFallbackSrc) {
+            setCurrentCatSrc(catFallbackSrc);
+          }
+        }}
+        style={{
+          maxWidth: '100%',
+          height: 'auto',
+          maxHeight: size,
+          objectFit: 'contain',
+          borderRadius: '16px',
+          display: 'block',
+          margin: '0 auto',
+        }}
+      />
     </div>
   );
 }

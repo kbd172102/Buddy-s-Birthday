@@ -18,9 +18,9 @@ export const birthdayData = {
 
   scene01: {
     tag: "A Little Surprise For You",
-    heading: "HEYYYY KUMBHKARANNN!! 👀",
+    heading: "Hello ji 🫠!! 👀",
     introLines: [
-      "Uthhhh jaaaooo! Someone has something to show you! 😂",
+      "Uthhhh jaaaooo! Someone has something to show you! 😝",
       "Well well well... look who's here!",
       "Ready for a little surprise, buddy?"
     ],
