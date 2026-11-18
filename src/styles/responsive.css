@@ -1,0 +1,100 @@
+/* Responsive styles & utility classes */
+
+.scene-container {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.5rem 5rem 1.5rem;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.scene-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Header & Text Scaling */
+.scene-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.95rem;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-taupe-dark);
+  margin-bottom: 1.25rem;
+}
+
+.scene-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.scene-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  text-align: center;
+  max-width: 650px;
+  color: var(--text-muted);
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+/* Mobile Adjustments (320px - 480px) */
+@media (max-width: 480px) {
+  .scene-container {
+    padding: 4.25rem 1rem 4.5rem 1rem;
+  }
+
+  .scene-tag {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.88rem;
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 0.75rem;
+  }
+}
+
+/* Tablet Adjustments (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .scene-container {
+    padding: 4.75rem 1.5rem 5rem 1.5rem;
+  }
+}
+
+/* Desktop Adjustments (1024px+) */
+@media (min-width: 1024px) {
+  .scene-container {
+    padding: 5.5rem 2.5rem 5.5rem 2.5rem;
+  }
+}
