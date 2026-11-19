@@ -288,7 +288,7 @@ Here's to all the memories we've made and all the madness still waiting for us.
 
 HAPPY BIRTHDAY, MY BEST MITTR. 🤍`,
     footerQuote: "MADE WITH LOVE, A LITTLE MADNESS & UNLIMITED BAKCHODI.",
-    footerSignature: "From your favourite human and permanent headache.",
+    footerSignature: "From your mittr.",
     replayBtn: "REPLAY THE SURPRISE ↺"
   }
 };
