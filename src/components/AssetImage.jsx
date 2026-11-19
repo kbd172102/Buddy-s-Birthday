@@ -192,7 +192,7 @@ export default function AssetImage({
               marginTop: '0.3rem'
             }}
           >
-            <Camera size={11} /> Drop photo to replace
+            <Camera size={11} /> 
           </span>
         )}
       </div>
