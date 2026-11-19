@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Scenes & Components
 import WelcomeScreen from './components/WelcomeScreen';
 import OfficeMuseum from './components/OfficeMuseum';
-import UserManual from './components/UserManual';
+import LittleMoments from './components/LittleMoments';
 import BirthdayCalendar from './components/BirthdayCalendar';
 import BirthdayCelebration from './components/BirthdayCelebration';
 import FinalSurprise from './components/FinalSurprise';
@@ -181,7 +181,7 @@ export default function App() {
             )}
 
             {currentScene === 3 && (
-              <UserManual
+              <LittleMoments
                 onNext={goToNextScene}
                 onPrev={goToPrevScene}
                 onPlayClickSound={handlePlayClickSound}

@@ -42,7 +42,8 @@ export const assets = {
   },
   teddyHug: {
     src: `${ASSET_BASE}/teddy-hug.gif`,
-    alt: "Soft white and caramel teddy bears cuddling",
+    fallbackSrc: 'https://media1.tenor.com/m/HFVj221IoRAAAAAd/dance-kiss-video.gif',
+    alt: "Warm hug between best buddies",
     type: "image",
     fallbackType: "teddy-hug",
     caption: "Warm hug between best friends"
@@ -85,7 +86,7 @@ export const assets = {
     alt: "Sending nonstop messages",
     type: "image",
     caption: "WHEN I SEND YOU 27 MESSAGES AND YOU HAVEN'T REPLIED TO EVEN ONE. 🙄",
-    handwritten: "Hello??? Kumbhkaran??? Are you alive???"
+    handwritten: "Hello jii??? Are you alive???"
   },
   irritationGif: {
     src: `${ASSET_BASE}/irritation.gif`,

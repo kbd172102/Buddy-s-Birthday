@@ -43,7 +43,7 @@ export const birthdayData = {
     description: "Click any polaroid to take a closer trip down memory lane.",
     nonstopMessages: {
       caption: "WHEN I SEND YOU 27 MESSAGES AND YOU HAVEN'T REPLIED TO EVEN ONE. 🙄",
-      handwritten: "Hello??? Kumbhkaran??? Are you alive???",
+      handwritten: "Hello jii??? Are you alive???",
       note: "Seen: 2 hours ago. Reply status: Pending forever 😂"
     },
     memories: [
@@ -100,93 +100,64 @@ export const birthdayData = {
     ]
   },
 
-  // Completely redesigned Page 3: THE OFFICIAL USER MANUAL
+  // Page 3: LITTLE MOMENTS, BIG MEMORIES 🤍
   scene03: {
-    tag: "Chapter 03 / User Guide",
-    heading: "THE OFFICIAL USER MANUAL",
-    subheading: "How to handle this particular Kumbhkaran. 😂",
-
-    // Part A: Character Profile
-    profile: {
-      tagline: "CLASSIFIED SPECIMEN DOSSIER",
-      name: "My Best Mittr 🤍",
-      nickname: "Kumbhkaran",
-      category: "Rare Human Species",
-      availability: "Depends on sleeping schedule.",
-      specialFeature: "Unlimited bakchodi.",
-      warning: "May irritate you without any valid reason."
-    },
-
-    // Part B: Operating Instructions Cards
-    instructions: [
+    tag: "Little Moments, Big Memories 🤍",
+    heading: "JUST A FEW THINGS ABOUT US...",
+    subheading: "A little teasing, unlimited messages, and moments that stay with us forever.",
+    memoryCards: [
       {
-        id: "card-1",
+        id: "card-irritation",
         num: "01",
-        title: "SLEEP MODE 😴",
-        modeName: "Hibernation Routine",
-        badgeColor: "#C5D1D8",
-        icon: "moon",
-        description: "Handle with care. This human may enter sleep mode without prior notification.",
-        tip: "Pro Tip: Alarm clock is completely decorative. Requires high decibel shouting."
+        title: "NONSTOP IRRITATION 😂",
+        text: "When I irritate you, you irritate me back, and somehow neither of us knows when to stop.",
+        assetKey: "irritationGif",
+        gifSrc: "/assets/irritation.gif",
+        fallbackSrc: "https://media.tenor.com/T-v1xYm8M0UAAAAj/mad.gif",
+        alt: "Nonstop irritation GIF",
+        washiAngle: -2.5,
+        tag: "Tom & Jerry Energy",
+        badgeColor: "#B8C4B0"
       },
       {
-        id: "card-2",
+        id: "card-messages",
         num: "02",
-        title: "SNACK DETECTOR 🍟",
-        modeName: "Food Sensing Radar",
-        badgeColor: "#D8C6A5",
-        icon: "snack",
-        description: "Never underestimate his ability to notice food. Snacks have a special priority.",
-        tip: "Pro Tip: Mention samosas, chai, or treats to instantly reboot the system."
+        title: "UNLIMITED MESSAGES 📱",
+        text: "When I keep sending you messages and you probably wonder why your phone is still alive.",
+        assetKey: "nonstopMessages",
+        gifSrc: "/assets/nonstop-messages.gif",
+        fallbackSrc: "https://media1.tenor.com/m/HHWJFGqXnt4AAAAd/mikrene.gif",
+        alt: "Unlimited messages GIF",
+        washiAngle: 2.0,
+        tag: "Spam Level: Expert",
+        badgeColor: "#C5D1D8"
       },
       {
-        id: "card-3",
+        id: "card-hug",
         num: "03",
-        title: "IRRITATION MODE 😂",
-        modeName: "Tom & Jerry Protocol",
-        badgeColor: "#B8C4B0",
-        icon: "chase",
-        description: "May irritate people professionally. Especially people who know him well.",
-        gifCaption: "WHEN I IRRITATE YOU, BUT YOU KNOW YOU DESERVE IT. 😂",
-        tip: "Pro Tip: Do not attempt to reason. Just irritate him back twice as hard!"
-      },
-      {
-        id: "card-4",
-        num: "04",
-        title: "BAKCHODI MODE 🚀",
-        modeName: "Peak Chaos Activated",
-        badgeColor: "#E8DFD1",
-        icon: "zap",
-        description: "Once activated, there is no guarantee of a peaceful environment.",
-        tip: "Pro Tip: Sit back, grab popcorn, and embrace the unlimited nonsense."
-      },
-      {
-        id: "card-5",
-        num: "05",
-        title: "FRIENDSHIP MODE 🤍",
-        modeName: "The Core Heart",
-        badgeColor: "#A99A88",
-        icon: "heart",
-        description: "Behind all the nonsense, there is a genuinely wonderful person who deserves all the happiness in the world.",
-        tip: "Pro Tip: Truly one of a kind. Keep him safe forever."
+        title: "FIGHTS DON'T LAST FOREVER 🧸",
+        text: "A little teasing, a little fighting, and then we're back to being buddies.",
+        assetKey: "teddyHug",
+        gifSrc: "/assets/teddy-hug.gif",
+        fallbackSrc: "https://media1.tenor.com/m/HFVj221IoRAAAAAd/dance-kiss-video.gif",
+        alt: "Teddy hug GIF",
+        washiAngle: -1.8,
+        tag: "Buddies Forever",
+        badgeColor: "#D8C6A5"
       }
     ],
-
-    // Part C: A Little Serious Now
-    seriousPart: {
+    transition: {
       heading: "BUT SERIOUSLY, BUDDY...",
-      subheading: "Past the manual, straight from the heart.",
-      hugCaption: "OKAY FINE, ENOUGH FIGHTING. HERE'S A HUG, BUDDY. 🤍",
-      message: `Jokes apart, I'm genuinely glad I got to know you.
+      message: `Among all the ordinary days, some people make things a little more memorable.
 
-From our office days to all the random conversations and endless masti, you've been part of so many moments that I'll always remember.
+From our office days, random conversations, snack breaks and endless team masti, I'm glad we have so many little moments to look back on.
 
-I hope life gives you everything you're working towards.
+Your good morning wishes really do make my day, buddy. Your random messages always bring a smile to my face. I honestly thought that after leaving the office, you would never message me again, but somehow, we still share that connection. Thank you for being there for me. ❤️
 
-Keep smiling, keep growing and never lose the person you are.
+I hope life brings you happiness, success and everything your heart is working towards.
 
-You're not just a colleague from an old office anymore.
-
+Always keep smiling, buddy.
+      
 You're my best mittr. 🤍`
     }
   },

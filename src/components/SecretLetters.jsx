@@ -64,7 +64,7 @@ export default function SecretLetters({ onNext, onPrev, onPlayClickSound, isSoun
             marginBottom: '3.5rem',
           }}
         >
-          {content.letters.map((letter, idx) => {
+          {(content.letters || []).map((letter, idx) => {
             const isOpened = openedLetters[letter.id];
 
             return (
