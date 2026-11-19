@@ -94,88 +94,41 @@ export default function CareerJourney() {
           </p>
         </div>
 
-        {/* Right Side: Scenic Sunrise & Road Illustration */}
+        {/* Right Side: The Grand Moment Image */}
         <div
           style={{
-            borderRadius: '16px',
+            borderRadius: '18px',
             overflow: 'hidden',
-            border: '1px solid var(--border-medium)',
-            background: 'linear-gradient(180deg, #F9F5EC 0%, #E8DFD1 100%)',
-            padding: '1.25rem',
+            border: '1.5px solid var(--border-medium)',
+            background: 'var(--bg-cream)',
+            padding: '0.65rem',
             boxShadow: 'var(--shadow-paper)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
           }}
         >
-          <svg viewBox="0 0 400 300" width="100%" height="100%" style={{ display: 'block' }}>
-            <defs>
-              <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#E9EEF2" />
-                <stop offset="60%" stopColor="#F7EED9" />
-                <stop offset="100%" stopColor="#F1DFC4" />
-              </linearGradient>
-              <linearGradient id="sunGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFE8B5" />
-                <stop offset="100%" stopColor="#E6C48B" />
-              </linearGradient>
-              <linearGradient id="hillFar" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#CAD5C5" />
-                <stop offset="100%" stopColor="#B4C2AF" />
-              </linearGradient>
-              <linearGradient id="hillNear" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#B5C3AC" />
-                <stop offset="100%" stopColor="#9EAF95" />
-              </linearGradient>
-            </defs>
-
-            {/* Sky Background */}
-            <rect width="400" height="300" rx="10" fill="url(#skyGrad)" />
-
-            {/* Rising Golden Sun */}
-            <motion.circle
-              cx="200"
-              cy="140"
-              r="48"
-              fill="url(#sunGlow)"
-              animate={{ scale: [1, 1.06, 1] }}
-              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-            />
-            {/* Sun Aura */}
-            <circle cx="200" cy="140" r="75" fill="rgba(255, 232, 181, 0.25)" />
-
-            {/* Distant Birds */}
-            <path d="M 90 70 Q 98 64 106 70 Q 114 64 122 70" fill="none" stroke="#7E7367" strokeWidth="1.6" strokeLinecap="round" />
-            <path d="M 290 85 Q 296 80 302 85 Q 308 80 314 85" fill="none" stroke="#7E7367" strokeWidth="1.4" strokeLinecap="round" />
-
-            {/* Distant Hills */}
-            <path d="M 0 170 Q 110 135 220 160 Q 320 140 400 175 L 400 300 L 0 300 Z" fill="url(#hillFar)" />
-            <path d="M 0 190 Q 90 165 200 185 Q 300 165 400 205 L 400 300 L 0 300 Z" fill="url(#hillNear)" />
-
-            {/* Winding Open Road Heading to Sunrise */}
-            <path
-              d="M 170 300 C 180 250, 190 200, 200 165 C 205 165, 205 165, 206 165 C 215 200, 225 250, 245 300 Z"
-              fill="#E1D5C1"
-              stroke="#8F7E6C"
-              strokeWidth="1.5"
-            />
-            {/* Road Dashed Centerline */}
-            <path
-              d="M 207 300 C 203 260, 201 210, 203 165"
-              fill="none"
-              stroke="#FFF8EE"
-              strokeWidth="2.5"
-              strokeDasharray="6 8"
-            />
-
-            {/* Little Signpost "NEW PATH" */}
-            <line x1="285" y1="230" x2="285" y2="260" stroke="#51483F" strokeWidth="2.5" />
-            <rect x="260" y="220" width="55" height="20" rx="3" fill="#FFFEFA" stroke="#51483F" strokeWidth="1.5" />
-            <text x="267" y="234" fontSize="9" fontFamily="var(--font-sans)" fontWeight="bold" fill="#51483F">
-              NEXT GOAL ➔
-            </text>
-
-            {/* Sparkles */}
-            <text x="140" y="120" fontSize="16" fill="#D8C6A5">✨</text>
-            <text x="250" y="110" fontSize="14" fill="#D8C6A5">✨</text>
-          </svg>
+          <img
+            src="/assets/grand-moment.png"
+            alt="New Field. New Dreams. Same Legend."
+            loading="lazy"
+            onError={(e) => {
+              const fallback =
+                'https://images.openai.com/static-rsc-4/_KFkO-llHArZjqNwGG4VEoVEUXfM6Vvlf8zAOIs2SOdNQYoDJWFJsWcot2eggdw3Mu6qe71_1Q8ND9sdiog3etKFRZs4txuvYkQf0-Xvi0LoHhaFcigpQ_6P0nPikRsrx0sIlvLewfdLqUntK0EPIamv5Ca1fmk9kSm4IDLfoFLZa6ielLSTUQGPUaL0uyAB?purpose=fullsize';
+              if (e.target.src !== fallback) {
+                e.target.src = fallback;
+              }
+            }}
+            style={{
+              width: '100%',
+              height: 'auto',
+              maxHeight: '340px',
+              objectFit: 'cover',
+              borderRadius: '12px',
+              display: 'block',
+            }}
+          />
         </div>
       </div>
     </div>

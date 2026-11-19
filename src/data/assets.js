@@ -191,6 +191,13 @@ export const assets = {
   },
 
   // Birthday & Celebration
+  grandMoment: {
+    src: `${ASSET_BASE}/grand-moment.png`,
+    fallbackSrc: 'https://images.openai.com/static-rsc-4/_KFkO-llHArZjqNwGG4VEoVEUXfM6Vvlf8zAOIs2SOdNQYoDJWFJsWcot2eggdw3Mu6qe71_1Q8ND9sdiog3etKFRZs4txuvYkQf0-Xvi0LoHhaFcigpQ_6P0nPikRsrx0sIlvLewfdLqUntK0EPIamv5Ca1fmk9kSm4IDLfoFLZa6ielLSTUQGPUaL0uyAB?purpose=fullsize',
+    alt: "New Field. New Dreams. Same Legend.",
+    type: "image",
+    caption: "New Field. New Dreams. Same Legend."
+  },
   birthdayCake: {
     src: `${ASSET_BASE}/birthday-cake.gif`,
     alt: "Celebration birthday cake with glowing candles",

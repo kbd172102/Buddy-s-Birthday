@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAsset } from '../data/assets';
 import IllustratedTeddy from './IllustratedTeddy';
-import { Camera, Image as ImageIcon } from 'lucide-react';
+import { Image as ImageIcon } from 'lucide-react';
 
 /**
  * Intelligent Asset Loader Component
@@ -161,7 +161,7 @@ export default function AssetImage({
         {renderCategoryDoodle(assetKey)}
       </div>
 
-      {/* Caption & Placeholder hint */}
+      {/* Caption Area */}
       <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '90%' }}>
         <p
           style={{
@@ -169,32 +169,11 @@ export default function AssetImage({
             fontSize: '1.25rem',
             color: 'var(--text-dark)',
             lineHeight: 1.2,
-            marginBottom: '0.2rem'
+            margin: 0
           }}
         >
           {assetConfig.caption || 'Special Memory Captured Here'}
         </p>
-
-        {showPlaceholderHint && (
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.3rem',
-              fontSize: '0.72rem',
-              letterSpacing: '0.04em',
-              textTransform: 'uppercase',
-              color: 'var(--accent-taupe-dark)',
-              background: 'rgba(255, 255, 255, 0.85)',
-              padding: '0.2rem 0.55rem',
-              borderRadius: '999px',
-              border: '1px solid rgba(169, 154, 136, 0.25)',
-              marginTop: '0.3rem'
-            }}
-          >
-            <Camera size={11} /> 
-          </span>
-        )}
       </div>
     </div>
   );
