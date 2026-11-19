@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Coffee, ArrowRight, ArrowLeft, Bookmark } from 'lucide-react';
+import { Coffee, ArrowRight, ArrowLeft, Bookmark, Heart } from 'lucide-react';
 import { birthdayData } from '../data/birthdayContent';
-import { assets } from '../data/assets';
 import MemoryCard from './MemoryCard';
 import PhotoLightbox from './PhotoLightbox';
 
@@ -37,7 +36,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
   return (
     <section className="scene-container">
       <div className="scene-inner">
-        {/* Tag */}
+        {/* Scrapbook Scene Tag */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +47,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
           <span>{content.tag}</span>
         </motion.div>
 
-        {/* Heading & Subheading */}
+        {/* Section Heading & Subtitle */}
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +66,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
           "{content.subheading}"
         </motion.p>
 
-        {/* Scrapbook Sticky Note */}
+        {/* Scrapbook Sticky Note Banner */}
         <motion.div
           initial={{ opacity: 0, rotate: -2 }}
           animate={{ opacity: 1, rotate: -1 }}
@@ -76,7 +75,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
             background: 'var(--bg-cream)',
             border: '1px dashed var(--border-medium)',
             padding: '0.65rem 1.4rem',
-            borderRadius: '8px',
+            borderRadius: '10px',
             marginBottom: '1rem',
             display: 'inline-flex',
             alignItems: 'center',
@@ -88,43 +87,54 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
           <span
             style={{
               fontFamily: 'var(--font-hand)',
-              fontSize: '1.2rem',
+              fontSize: '1.25rem',
               color: 'var(--text-dark)',
+              fontWeight: 600,
             }}
           >
             {content.description}
           </span>
         </motion.div>
 
-        {/* Playful Cat & Mouse Office Note */}
+        {/* Playful Tom & Jerry Office Mascot Strip */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           style={{
+            background: 'rgba(255, 254, 250, 0.9)',
+            border: '1px solid var(--border-medium)',
+            borderRadius: '999px',
+            padding: '0.45rem 1.25rem',
             fontFamily: 'var(--font-sans)',
-            fontSize: '0.8rem',
+            fontSize: '0.82rem',
             color: 'var(--accent-taupe-dark)',
             fontWeight: 600,
-            marginBottom: '2.5rem',
+            marginBottom: '2.75rem',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.4rem',
+            gap: '0.55rem',
+            boxShadow: '0 2px 8px rgba(81, 72, 63, 0.05)',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
           }}
         >
-          <span>🐱⚡🐭 Desk Policy: When deadlines hit, Tom & Jerry mode activates automatically!</span>
+          <span style={{ fontSize: '1.1rem' }}>🐱⚡🐭</span>
+          <span>Official Desk Rule: Deadlines are temporary, team lunches, KitKat breaks and masti are forever!</span>
         </motion.div>
 
-        {/* Scrapbook Polaroid Grid */}
+        {/* ================================================================ */}
+        {/* SCRAPBOOK POLAROID GRID (THE 5 MEMORY SECTIONS)                  */}
+        {/* ================================================================ */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2.25rem 1.85rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+            gap: '2.5rem 2rem',
             width: '100%',
-            maxWidth: '1050px',
-            marginBottom: '3.5rem',
-            alignItems: 'start',
+            maxWidth: '1060px',
+            marginBottom: '3.75rem',
+            alignItems: 'stretch',
           }}
         >
           {content.memories.map((memory, index) => (
@@ -132,7 +142,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
               key={memory.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 * index }}
+              transition={{ duration: 0.6, delay: 0.12 * index }}
             >
               <MemoryCard
                 memory={memory}
@@ -143,160 +153,120 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
           ))}
         </div>
 
-        {/* Special Featured Memory: When I send nonstop messages */}
+        {/* ================================================================ */}
+        {/* CLOSING MESSAGE SECTION                                          */}
+        {/* ================================================================ */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7 }}
           className="paper-card"
           style={{
-            maxWidth: '920px',
+            maxWidth: '820px',
             width: '100%',
-            background: 'linear-gradient(135deg, #FFFDF9 0%, #F5ECE0 100%)',
-            borderRadius: '20px',
-            padding: '2rem 1.75rem',
+            background: 'linear-gradient(145deg, #FFFDF9 0%, #F5ECE0 100%)',
+            borderRadius: '24px',
+            padding: '2.8rem 2.2rem',
             border: '1.5px solid var(--accent-champagne-dark)',
-            boxShadow: 'var(--shadow-paper)',
+            boxShadow: 'var(--shadow-float)',
             marginBottom: '3.5rem',
             position: 'relative',
+            textAlign: 'center',
           }}
         >
-          {/* Washi tape */}
+          {/* Decorative Washi Tape */}
           <div
             className="washi-tape"
             style={{
-              top: '-10px',
-              left: '15%',
-              transform: 'rotate(-2deg)',
-              width: '120px',
+              top: '-12px',
+              left: '50%',
+              transform: 'translateX(-50%) rotate(-1deg)',
+              width: '150px',
+              height: '24px',
             }}
           />
 
-          <div
+          <span
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '2rem',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.78rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-taupe-dark)',
+              fontWeight: 700,
+              display: 'inline-flex',
               alignItems: 'center',
+              gap: '0.4rem',
+              marginBottom: '0.85rem',
             }}
           >
-            {/* The Animated Tenor GIF */}
-            <div
+            <Heart size={13} fill="var(--accent-taupe-dark)" /> {content.closingMessage?.tag || "THE BEST MEMORIES 🤍"}
+          </span>
+
+          <h3
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'clamp(1.5rem, 3.2vw, 2rem)',
+              color: 'var(--text-dark)',
+              margin: '0 0 1.5rem 0',
+              lineHeight: 1.25,
+            }}
+          >
+            {content.closingMessage?.title || "LOOKING BACK AT OUR OFFICE DAYS"}
+          </h3>
+
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.75)',
+              borderRadius: '16px',
+              border: '1px solid var(--border-light)',
+              padding: '2rem 1.85rem',
+              margin: '0 auto 1.85rem auto',
+              maxWidth: '720px',
+              boxShadow: 'inset 0 1px 3px rgba(81, 72, 63, 0.04)',
+            }}
+          >
+            <p
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                background: 'var(--bg-offwhite)',
-                padding: '1rem',
-                borderRadius: '16px',
-                border: '1px solid var(--border-medium)',
-                boxShadow: '0 6px 18px rgba(81, 72, 63, 0.08)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'clamp(1.02rem, 2vw, 1.12rem)',
+                color: 'var(--text-dark)',
+                lineHeight: 1.85,
+                whiteSpace: 'pre-line',
+                margin: 0,
+                textAlign: 'center',
               }}
             >
-              <img
-                src={assets.nonstopMessages?.src || '/assets/nonstop-messages.gif'}
-                alt="Sending nonstop messages"
-                loading="lazy"
-                onError={(e) => {
-                  if (e.target.src !== assets.nonstopMessages?.fallbackSrc) {
-                    e.target.src = assets.nonstopMessages?.fallbackSrc;
-                  }
-                }}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                  maxHeight: '260px',
-                  objectFit: 'contain',
-                  borderRadius: '12px',
-                  display: 'block',
-                }}
-              />
-            </div>
+              {content.closingMessage?.text}
+            </p>
+          </div>
 
-            {/* The Cute Message Card */}
-            <div>
-              <span
-                style={{
-                  fontSize: '0.75rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  color: 'var(--accent-taupe-dark)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  marginBottom: '0.5rem',
-                }}
-              >
-                <span>💬</span> DESK CHAT LOG • UNANSWERED PINGS
-              </span>
-
-              <h3
-                style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.25rem',
-                  color: 'var(--text-dark)',
-                  lineHeight: 1.35,
-                  marginBottom: '0.85rem',
-                }}
-              >
-                {content.nonstopMessages?.caption}
-              </h3>
-
-              {/* Sticky handwritten note */}
-              <div
-                style={{
-                  background: 'var(--bg-cream)',
-                  border: '1.5px dashed var(--accent-taupe)',
-                  borderRadius: '10px',
-                  padding: '0.85rem 1.15rem',
-                  marginBottom: '1rem',
-                  transform: 'rotate(-1deg)',
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: 'var(--font-hand)',
-                    fontSize: '1.45rem',
-                    color: 'var(--accent-taupe-dark)',
-                    margin: 0,
-                    lineHeight: 1.25,
-                    fontWeight: 600,
-                  }}
-                >
-                  "{content.nonstopMessages?.handwritten}"
-                </p>
-              </div>
-
-              {/* Chat bubbles preview */}
-              <div
-                style={{
-                  background: 'rgba(255, 255, 255, 0.65)',
-                  borderRadius: '12px',
-                  padding: '0.85rem 1rem',
-                  border: '1px solid var(--border-light)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.4rem',
-                  fontSize: '0.85rem',
-                }}
-              >
-                <div style={{ alignSelf: 'flex-end', background: 'var(--accent-champagne-light)', padding: '0.3rem 0.75rem', borderRadius: '12px 12px 2px 12px', border: '1px solid var(--border-light)', color: 'var(--text-dark)' }}>
-                  Oi Kumbhkaran
-                </div>
-                <div style={{ alignSelf: 'flex-end', background: 'var(--accent-champagne-light)', padding: '0.3rem 0.75rem', borderRadius: '12px 12px 2px 12px', border: '1px solid var(--border-light)', color: 'var(--text-dark)' }}>
-                  Sun na food manga le?
-                </div>
-                <div style={{ alignSelf: 'flex-start', background: 'var(--bg-offwhite)', padding: '0.3rem 0.75rem', borderRadius: '12px 12px 12px 2px', border: '1px solid var(--border-light)', color: 'var(--text-muted)', fontStyle: 'italic' }}>
-                  *crickets chirping... seen 3 hours ago* 😴
-                </div>
-              </div>
-            </div>
+          {/* Doodles row: coffee, pizza, chocolate, laptop, happy faces */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '1.25rem',
+              fontSize: '1.45rem',
+              opacity: 0.9,
+              userSelect: 'none',
+              flexWrap: 'wrap',
+            }}
+          >
+            <motion.span whileHover={{ scale: 1.25, rotate: -8 }} style={{ cursor: 'pointer' }} title="Office Coffee">☕</motion.span>
+            <motion.span whileHover={{ scale: 1.25, rotate: 8 }} style={{ cursor: 'pointer' }} title="Team Lunch">🍕</motion.span>
+            <motion.span whileHover={{ scale: 1.25, rotate: -8 }} style={{ cursor: 'pointer' }} title="KitKat Break">🍫</motion.span>
+            <motion.span whileHover={{ scale: 1.25, rotate: 8 }} style={{ cursor: 'pointer' }} title="Work Laptop">💻</motion.span>
+            <motion.span whileHover={{ scale: 1.25, rotate: -8 }} style={{ cursor: 'pointer' }} title="Happy Faces">😊</motion.span>
+            <motion.span whileHover={{ scale: 1.25, rotate: 8 }} style={{ cursor: 'pointer' }} title="Pure Love">🫶</motion.span>
           </div>
         </motion.div>
 
-        {/* Navigation Buttons */}
+        {/* ================================================================ */}
+        {/* NAVIGATION BUTTONS                                               */}
+        {/* ================================================================ */}
         <div
           className="button-group"
           style={{
@@ -329,7 +299,7 @@ export default function OfficeMuseum({ onNext, onPrev, onPlayClickSound }) {
               onNext();
             }}
           >
-            Open User Manual <ArrowRight size={16} />
+            {content.closingMessage?.buttonText || "MORE MEMORIES AHEAD →"} <ArrowRight size={16} />
           </motion.button>
         </div>
       </div>

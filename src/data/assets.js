@@ -117,41 +117,77 @@ export const assets = {
     caption: "WE SURVIVED ANOTHER YEAR OF EACH OTHER! LET'S GOOOOOOO! 😂🤍"
   },
 
-  // Office Memories & Scrapbook Polaroids
+  // Office & Team Scrapbook Memories
+  teamGroup: {
+    src: `${ASSET_BASE}/team-group.jpg`,
+    alt: "Our crazy little team together",
+    type: "image",
+    fallbackType: "doodle-team",
+    caption: "Our Crazy Little Team 🤍"
+  },
+  teamLunch: {
+    src: `${ASSET_BASE}/team-lunch.jpg`,
+    alt: "Team lunch and happy hours",
+    type: "image",
+    fallbackType: "doodle-lunch",
+    caption: "Team Lunch = Happy Hours 🍕"
+  },
+  kitkatBreak: {
+    src: `${ASSET_BASE}/kitkat-break.jpg`,
+    alt: "KitKat chocolate break and team gossip",
+    type: "image",
+    fallbackType: "doodle-kitkat",
+    caption: "KitKat Breaks Are Important 🍫"
+  },
+  everydayMasti: {
+    src: `${ASSET_BASE}/everyday-masti.jpg`,
+    alt: "Everyday full masti and fun at desk",
+    type: "image",
+    fallbackType: "doodle-masti",
+    caption: "Everyday Full Masti 😂"
+  },
+  peopleSpecial: {
+    src: `${ASSET_BASE}/people-special.jpg`,
+    alt: "The people who made office days special",
+    type: "image",
+    fallbackType: "doodle-special",
+    caption: "The People Who Made It Special 🫶"
+  },
+  // Legacy / Alternate file key mappings
   office01: {
     src: `${ASSET_BASE}/office-01.jpg`,
-    alt: "Non-stop irritating each other at the desk",
+    alt: "Everyday full masti at desk",
     type: "image",
-    fallbackType: "doodle-office-desk",
-    caption: "Work was hard. Irritating each other was easy."
+    fallbackType: "doodle-masti",
+    caption: "Everyday Full Masti 😂"
   },
   snacks01: {
     src: `${ASSET_BASE}/snacks-01.jpg`,
-    alt: "The Snacks Department",
+    alt: "Team lunch and snacks",
     type: "image",
-    fallbackType: "doodle-snacks",
-    caption: "Break time was our specialization."
+    fallbackType: "doodle-lunch",
+    caption: "Team Lunch = Happy Hours 🍕"
   },
   team01: {
     src: `${ASSET_BASE}/team-01.jpg`,
-    alt: "Team masti and laughter",
+    alt: "Our crazy little team",
     type: "image",
     fallbackType: "doodle-team",
-    caption: "The team had deadlines. We had other plans."
+    caption: "Our Crazy Little Team 🤍"
   },
   office02: {
     src: `${ASSET_BASE}/office-02.jpg`,
-    alt: "Random office moments",
+    alt: "The people who made it special",
     type: "image",
-    fallbackType: "doodle-random",
-    caption: "Ordinary days made extraordinary."
+    fallbackType: "doodle-special",
+    caption: "The People Who Made It Special 🫶"
   },
   office03: {
     src: `${ASSET_BASE}/office-03.jpg`,
-    alt: "The little things",
+    alt: "KitKat breaks and little things",
     type: "image",
-    fallbackType: "doodle-little-things",
-    caption: "Everyday memories we cherish."
+    fallbackType: "doodle-kitkat",
+    caption: "KitKat Breaks Are Important 🍫"
   },
 
   // Birthday & Celebration

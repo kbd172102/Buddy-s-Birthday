@@ -39,65 +39,85 @@ export const birthdayData = {
   scene02: {
     tag: "Chapter 02 / Office Chronicles",
     heading: "THE OFFICE CHRONICLES",
-    subheading: "Where productivity met unlimited nonsense.",
+    subheading: "Work brought us together, but the masti made every day memorable! 😂",
     description: "Click any polaroid to take a closer trip down memory lane.",
-    nonstopMessages: {
-      caption: "WHEN I SEND YOU 27 MESSAGES AND YOU HAVEN'T REPLIED TO EVEN ONE. 🙄",
-      handwritten: "Hello jii??? Are you alive???",
-      note: "Seen: 2 hours ago. Reply status: Pending forever 😂"
-    },
     memories: [
       {
-        id: "irritate",
-        assetKey: "office01",
-        title: "NON-STOP IRRITATING EACH OTHER",
-        caption: "WORK WAS HARD. IRRITATING EACH OTHER WAS EASY.",
-        note: "Professional colleagues? Maybe. Peaceful colleagues? NEVER. Pure Tom & Jerry energy every single day!",
-        doodle: "paperclip",
-        rotate: -2.5,
-        colorTag: "#B8C4B0"
+        id: "team-crazy",
+        num: "01",
+        assetKey: "teamGroup",
+        title: "01. OUR CRAZY LITTLE TEAM 🤍",
+        caption: "Different people, different personalities, one team and unlimited madness!",
+        note: "Every day came with new jokes, random conversations, laughter and moments that made even the busiest days fun.",
+        doodle: "team",
+        rotate: -2.0,
+        colorTag: "#B8C4B0",
+        badge: "Desk Squad ✨",
+        sectionType: "team-group"
       },
       {
-        id: "snacks",
-        assetKey: "snacks01",
-        title: "THE SNACKS DEPARTMENT",
-        caption: "BREAK TIME WAS OUR SPECIALIZATION.",
-        note: "Some meetings were important. Some snacks were MORE important. Snack detector Kumbhkaran on high alert!",
-        doodle: "coffee",
-        rotate: 3.2,
-        colorTag: "#D8C6A5"
+        id: "team-lunch",
+        num: "02",
+        assetKey: "teamLunch",
+        title: "02. TEAM LUNCH = HAPPY HOURS 🍕",
+        caption: "Forget the deadlines for a while. When it was lunchtime, the whole team had one important mission: EAT, TALK AND ENJOY!",
+        note: "Somehow, our lunch breaks always turned into the best conversations of the day.",
+        doodle: "pizza",
+        rotate: 2.2,
+        colorTag: "#D8C6A5",
+        badge: "Happy Hours 🍕",
+        sectionType: "team-lunch"
       },
       {
-        id: "team",
-        assetKey: "team01",
-        title: "TEAM MASTI",
-        caption: "THE TEAM HAD DEADLINES. WE HAD OTHER PLANS.",
-        note: "The best desk conversations and team chaos that HR never needed to know about.",
-        doodle: "star",
-        rotate: -1.8,
-        colorTag: "#C5D1D8"
+        id: "kitkat-break",
+        num: "03",
+        assetKey: "kitkatBreak",
+        title: "03. KITKAT BREAKS ARE IMPORTANT 🍫",
+        caption: "Have a break, have a KitKat!",
+        note: "Because apparently, a little chocolate and some team gossip were essential for surviving the office day. 😂",
+        doodle: "chocolate",
+        rotate: -1.6,
+        colorTag: "#A99A88",
+        badge: "Break Time 🍫",
+        sectionType: "kitkat-break"
       },
       {
-        id: "random",
-        assetKey: "office02",
-        title: "RANDOM OFFICE MOMENTS",
-        caption: "Some of the best memories were made during the most ordinary days.",
-        note: "Typing furiously just to look busy, pretending to understand Jira tickets, and 4 PM chai debates with you, buddy.",
-        doodle: "sparkle",
-        rotate: 2.1,
-        colorTag: "#E8DFD1"
+        id: "everyday-masti",
+        num: "04",
+        assetKey: "everydayMasti",
+        title: "04. EVERYDAY FULL MASTI 😂",
+        caption: "From morning hellos to random jokes, teasing each other, laughing over silly things and making fun out of absolutely nothing...",
+        note: "Who said going to the office had to be boring?",
+        doodle: "laugh",
+        rotate: 1.8,
+        colorTag: "#C5D1D8",
+        badge: "Tom & Jerry 🐱⚡🐭",
+        sectionType: "everyday-masti"
       },
       {
-        id: "little-things",
-        assetKey: "office03",
-        title: "THE LITTLE THINGS",
-        caption: "It's funny how the smallest everyday moments become the memories we miss the most.",
-        note: "From debug headaches to uncontrollable laughing fits across the room. Grateful for ordinary days made unforgettable with you, buddy.",
+        id: "people-special",
+        num: "05",
+        assetKey: "peopleSpecial",
+        title: "05. THE PEOPLE WHO MADE IT SPECIAL 🫶",
+        caption: "The best part wasn't just the work or the place. It was the people we shared those everyday moments with.",
+        note: "All the laughter, team lunch, little celebrations, random talks and countless memories made those days special.",
         doodle: "heart",
-        rotate: -3.0,
-        colorTag: "#B8C4B0"
+        rotate: -2.2,
+        colorTag: "#B8C4B0",
+        badge: "Best Mittrs 🫶",
+        sectionType: "people-special"
       }
-    ]
+    ],
+    closingMessage: {
+      tag: "THE BEST MEMORIES 🤍",
+      title: "LOOKING BACK AT OUR OFFICE DAYS",
+      text: `Maybe we were supposed to go to the office to work...
+
+But somehow, we ended up collecting a lifetime of laughs, friendships, KitKat breaks and unforgettable memories.
+
+And honestly? I wouldn't trade those days for anything. 🤍`,
+      buttonText: "MORE MEMORIES AHEAD →"
+    }
   },
 
   // Page 3: LITTLE MOMENTS, BIG MEMORIES 🤍

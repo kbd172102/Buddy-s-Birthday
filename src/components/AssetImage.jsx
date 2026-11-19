@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { assets, getAsset } from '../data/assets';
+import { getAsset } from '../data/assets';
 import IllustratedTeddy from './IllustratedTeddy';
-import { Camera, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Camera, Image as ImageIcon } from 'lucide-react';
 
 /**
  * Intelligent Asset Loader Component
@@ -20,10 +20,28 @@ export default function AssetImage({
 }) {
   const assetConfig = getAsset(assetKey);
   const [loadState, setLoadState] = useState('loading'); // 'loading' | 'loaded' | 'fallback'
+  const [resolvedSrc, setResolvedSrc] = useState(assetConfig.src);
 
   // If asset is a teddy variant, we can directly render IllustratedTeddy if desired,
   // but if the user has a real GIF in public/assets/, we check that first!
   const isTeddyVariant = ['teddyWelcome', 'teddyFight', 'teddyHappy', 'teddyHug'].includes(assetKey);
+
+  // Alternate file mapping helper to check alternate filenames
+  const getAlternateSrc = (key) => {
+    const alternates = {
+      teamGroup: '/assets/team-01.jpg',
+      team01: '/assets/team-group.jpg',
+      teamLunch: '/assets/snacks-01.jpg',
+      snacks01: '/assets/team-lunch.jpg',
+      kitkatBreak: '/assets/office-03.jpg',
+      office03: '/assets/kitkat-break.jpg',
+      everydayMasti: '/assets/office-01.jpg',
+      office01: '/assets/everyday-masti.jpg',
+      peopleSpecial: '/assets/office-02.jpg',
+      office02: '/assets/people-special.jpg',
+    };
+    return alternates[key] || null;
+  };
 
   useEffect(() => {
     if (!assetConfig.src) {
@@ -32,15 +50,30 @@ export default function AssetImage({
     }
 
     setLoadState('loading');
-    const img = new Image();
-    img.src = assetConfig.src;
-    img.onload = () => {
+    const primaryImg = new Image();
+    primaryImg.src = assetConfig.src;
+    primaryImg.onload = () => {
+      setResolvedSrc(assetConfig.src);
       setLoadState('loaded');
     };
-    img.onerror = () => {
-      setLoadState('fallback');
+    primaryImg.onerror = () => {
+      // Try alternate candidate filename if available
+      const altSrc = getAlternateSrc(assetKey);
+      if (altSrc) {
+        const altImg = new Image();
+        altImg.src = altSrc;
+        altImg.onload = () => {
+          setResolvedSrc(altSrc);
+          setLoadState('loaded');
+        };
+        altImg.onerror = () => {
+          setLoadState('fallback');
+        };
+      } else {
+        setLoadState('fallback');
+      }
     };
-  }, [assetConfig.src]);
+  }, [assetConfig.src, assetKey]);
 
   // If loaded successfully, render the actual image/gif with responsive preservation
   if (loadState === 'loaded') {
@@ -51,7 +84,7 @@ export default function AssetImage({
         onClick={onClick}
       >
         <img
-          src={assetConfig.src}
+          src={resolvedSrc}
           alt={alt || assetConfig.alt}
           loading="lazy"
           style={{
@@ -159,7 +192,7 @@ export default function AssetImage({
               marginTop: '0.3rem'
             }}
           >
-            <Camera size={11} /> Drop {assetConfig.src.replace('/assets/', '')}
+            <Camera size={11} /> Drop photo to replace
           </span>
         )}
       </div>
@@ -172,91 +205,97 @@ export default function AssetImage({
  */
 function renderCategoryDoodle(assetKey) {
   switch (assetKey) {
-    case 'office01':
-      // Irritating each other - dual computer monitors + coffee spill + funny sticky note
-      return (
-        <svg width="70" height="60" viewBox="0 0 100 80" fill="none">
-          {/* Laptop & desk */}
-          <rect x="15" y="25" width="45" height="30" rx="3" fill="#E8DFD1" stroke="#51483F" strokeWidth="2.5" />
-          <line x1="10" y1="55" x2="65" y2="55" stroke="#51483F" strokeWidth="3" strokeLinecap="round" />
-          {/* Funny Code / Error on screen */}
-          <line x1="22" y1="33" x2="40" y2="33" stroke="#B8C4B0" strokeWidth="2" strokeLinecap="round" />
-          <line x1="22" y1="39" x2="50" y2="39" stroke="#97AAB5" strokeWidth="2" strokeLinecap="round" />
-          <line x1="22" y1="45" x2="35" y2="45" stroke="#D8C6A5" strokeWidth="2" strokeLinecap="round" />
-          {/* Sticky note saying 'STOP' */}
-          <rect x="52" y="15" width="26" height="26" rx="2" fill="#F4EFE6" stroke="#A99A88" strokeWidth="1.5" transform="rotate(12 52 15)" />
-          <text x="60" y="32" fontSize="11" fontFamily="var(--font-hand)" fill="#51483F" fontWeight="bold" transform="rotate(12 52 15)">BUSY!</text>
-          {/* Coffee cup */}
-          <rect x="75" y="44" width="14" height="18" rx="2" fill="#D8C6A5" stroke="#51483F" strokeWidth="2" />
-          <path d="M 89 48 Q 94 53 89 58" fill="none" stroke="#51483F" strokeWidth="2" />
-          {/* Steam */}
-          <path d="M 80 38 Q 82 34 80 30" fill="none" stroke="#A99A88" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      );
-
-    case 'snacks01':
-      // Snacks - Chai cup + crunchy samosa + biscuit doodle
-      return (
-        <svg width="70" height="60" viewBox="0 0 100 80" fill="none">
-          {/* Chai Glass */}
-          <path d="M 25 25 L 30 60 L 45 60 L 50 25 Z" fill="#F4EFE6" stroke="#51483F" strokeWidth="2.5" />
-          <path d="M 28 35 L 32 58 L 43 58 L 47 35 Z" fill="#D8C6A5" />
-          {/* Samosa */}
-          <polygon points="65,22 88,58 48,58" fill="#E8DFD1" stroke="#51483F" strokeWidth="2.5" strokeLinejoin="round" />
-          <circle cx="68" cy="42" r="1.5" fill="#51483F" />
-          <circle cx="62" cy="48" r="1.5" fill="#51483F" />
-          <circle cx="74" cy="50" r="1.5" fill="#51483F" />
-          {/* Chai steam */}
-          <path d="M 35 18 Q 38 12 35 6" fill="none" stroke="#A99A88" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-      );
-
+    case 'teamGroup':
     case 'team01':
-      // Team masti - Meeting whiteboard + paper airplane + celebration doodle
+      // Team masti - Meeting whiteboard + paper airplane + celebration hearts
       return (
-        <svg width="70" height="60" viewBox="0 0 100 80" fill="none">
-          {/* Whiteboard */}
-          <rect x="20" y="15" width="60" height="42" rx="3" fill="#FFFEFA" stroke="#51483F" strokeWidth="2.5" />
-          <line x1="30" y1="57" x2="25" y2="70" stroke="#51483F" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="70" y1="57" x2="75" y2="70" stroke="#51483F" strokeWidth="2.5" strokeLinecap="round" />
-          {/* Whiteboard doodle - Team hearts & tick */}
-          <text x="32" y="38" fontSize="16" fontFamily="var(--font-hand)" fill="#B8C4B0" fontWeight="bold">TEAM ✨</text>
-          {/* Flying paper airplane */}
+        <svg width="74" height="62" viewBox="0 0 100 80" fill="none">
+          <rect x="18" y="14" width="64" height="44" rx="4" fill="#FFFEFA" stroke="#51483F" strokeWidth="2.5" />
+          <line x1="28" y1="58" x2="22" y2="72" stroke="#51483F" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="72" y1="58" x2="78" y2="72" stroke="#51483F" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="28" y="38" fontSize="15" fontFamily="var(--font-hand)" fill="#B8C4B0" fontWeight="bold">TEAM 🤍</text>
+          <text x="36" y="50" fontSize="10" fontFamily="var(--font-sans)" fill="#7E7367">Squad Goals</text>
           <path d="M 68 12 L 88 18 L 74 26 Z" fill="#E8DFD1" stroke="#51483F" strokeWidth="1.8" />
           <path d="M 68 12 L 74 26" stroke="#51483F" strokeWidth="1.5" />
+          <circle cx="82" cy="38" r="2" fill="#D8C6A5" />
+          <circle cx="22" cy="22" r="1.5" fill="#D8C6A5" />
         </svg>
       );
 
-    case 'office02':
-      // Random moments - Mechanical keyboard / desk clock / tea break
+    case 'teamLunch':
+    case 'snacks01':
+      // Team Lunch - Pizza slice with melting cheese + chai + yum snacks
       return (
-        <svg width="70" height="60" viewBox="0 0 100 80" fill="none">
-          {/* Desk clock at 4 PM */}
-          <circle cx="40" cy="40" r="24" fill="#F4EFE6" stroke="#51483F" strokeWidth="2.5" />
-          <line x1="40" y1="40" x2="40" y2="24" stroke="#51483F" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="40" y1="40" x2="52" y2="40" stroke="#A99A88" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="40" cy="40" r="2.5" fill="#51483F" />
-          {/* Floating 'Zzz' or laughter marks */}
-          <text x="68" y="30" fontSize="16" fontFamily="var(--font-hand)" fill="#51483F" fontWeight="bold">HA!</text>
-          <text x="74" y="48" fontSize="18" fill="#D8C6A5">✨</text>
+        <svg width="74" height="64" viewBox="0 0 100 80" fill="none">
+          <polygon points="50,15 84,65 16,65" fill="#E8C382" stroke="#51483F" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M 16 65 Q 50 72 84 65" fill="#C99B5B" stroke="#51483F" strokeWidth="2.5" />
+          <circle cx="48" cy="48" r="4.5" fill="#B85D43" />
+          <circle cx="34" cy="56" r="3.5" fill="#B85D43" />
+          <circle cx="62" cy="54" r="4" fill="#B85D43" />
+          <circle cx="50" cy="32" r="3" fill="#B85D43" />
+          <circle cx="40" cy="40" r="1.5" fill="#6E8E62" />
+          <circle cx="58" cy="42" r="1.5" fill="#6E8E62" />
+          <path d="M 46 10 Q 50 6 48 2" fill="none" stroke="#A99A88" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M 54 11 Q 58 7 56 3" fill="none" stroke="#A99A88" strokeWidth="1.6" strokeLinecap="round" />
+          <text x="68" y="26" fontSize="13" fontFamily="var(--font-hand)" fill="#51483F" fontWeight="bold">YUM!</text>
+          <text x="74" y="42" fontSize="14">🍕</text>
         </svg>
       );
 
+    case 'kitkatBreak':
     case 'office03':
-      // The Little Things - Polaroid frame + paper clips + hand heart
+      // KitKat break - Chocolate wafer fingers with golden wrapper & sparkles (strictly no trademarked logos)
       return (
-        <svg width="70" height="60" viewBox="0 0 100 80" fill="none">
-          {/* Mini Polaroid frame */}
-          <rect x="25" y="15" width="46" height="52" rx="3" fill="#FFFEFA" stroke="#51483F" strokeWidth="2" transform="rotate(-6 25 15)" />
-          <rect x="29" y="20" width="38" height="34" fill="#E8DFD1" transform="rotate(-6 25 15)" />
-          {/* Heart inside polaroid */}
+        <svg width="74" height="64" viewBox="0 0 100 80" fill="none">
+          <path d="M 22 42 L 78 42 L 74 72 L 26 72 Z" fill="#D8C6A5" stroke="#7F7160" strokeWidth="2" />
+          <line x1="34" y1="45" x2="32" y2="70" stroke="#BFA57B" strokeWidth="1.5" />
+          <line x1="50" y1="44" x2="50" y2="71" stroke="#BFA57B" strokeWidth="1.5" />
+          <line x1="66" y1="45" x2="68" y2="70" stroke="#BFA57B" strokeWidth="1.5" />
+          <rect x="28" y="14" width="18" height="34" rx="4" fill="#5A3825" stroke="#3D2416" strokeWidth="2" />
+          <rect x="32" y="18" width="10" height="26" rx="2" fill="#6B432D" />
+          <rect x="52" y="14" width="18" height="34" rx="4" fill="#5A3825" stroke="#3D2416" strokeWidth="2" />
+          <rect x="56" y="18" width="10" height="26" rx="2" fill="#6B432D" />
+          <circle cx="23" cy="24" r="1.5" fill="#5A3825" />
+          <circle cx="76" cy="28" r="2" fill="#5A3825" />
+          <text x="73" y="16" fontSize="13" fill="#D8C6A5">✨</text>
+          <text x="13" y="38" fontSize="12" fill="#B8C4B0">✦</text>
+          <rect x="33" y="52" width="34" height="13" rx="3" fill="#FFFDF9" stroke="#7F7160" strokeWidth="1" />
+          <text x="37" y="62" fontSize="9" fontFamily="var(--font-hand)" fill="#51483F" fontWeight="bold">BREAK 🍫</text>
+        </svg>
+      );
+
+    case 'everydayMasti':
+    case 'office01':
+      // Everyday Masti - Dual computer monitors + Tom & Jerry cat-and-mouse sticker
+      return (
+        <svg width="74" height="64" viewBox="0 0 100 80" fill="none">
+          <rect x="18" y="22" width="46" height="32" rx="3" fill="#FFFEFA" stroke="#51483F" strokeWidth="2.5" />
+          <line x1="41" y1="54" x2="41" y2="65" stroke="#51483F" strokeWidth="2.5" />
+          <line x1="28" y1="65" x2="54" y2="65" stroke="#51483F" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="35" cy="36" r="2.5" fill="#51483F" />
+          <circle cx="47" cy="36" r="2.5" fill="#51483F" />
+          <path d="M 34 43 Q 41 50 48 43" fill="none" stroke="#51483F" strokeWidth="2.2" strokeLinecap="round" />
+          <rect x="62" y="16" width="30" height="28" rx="3" fill="#F4EFE6" stroke="#A99A88" strokeWidth="1.5" transform="rotate(10 62 16)" />
+          <text x="66" y="32" fontSize="12" transform="rotate(10 62 16)">🐱⚡🐭</text>
+          <path d="M 68 56 L 86 50 L 74 66 Z" fill="#E8DFD1" stroke="#51483F" strokeWidth="1.6" />
+        </svg>
+      );
+
+    case 'peopleSpecial':
+    case 'office02':
+      // The People Who Made It Special - Polaroid + golden paperclip + hearts
+      return (
+        <svg width="74" height="64" viewBox="0 0 100 80" fill="none">
+          <rect x="22" y="14" width="52" height="58" rx="4" fill="#FFFEFA" stroke="#51483F" strokeWidth="2.2" transform="rotate(-4 22 14)" />
+          <rect x="27" y="20" width="42" height="38" fill="#F4EFE6" transform="rotate(-4 27 20)" />
           <path
-            d="M 48 35 C 48 30, 40 30, 40 36 C 40 42, 48 48, 48 48 C 48 48, 56 42, 56 36 C 56 30, 48 30, 48 35 Z"
+            d="M 48 36 C 48 29, 38 29, 38 37 C 38 45, 48 52, 48 52 C 48 52, 58 45, 58 37 C 58 29, 48 29, 48 36 Z"
             fill="#B8C4B0"
-            transform="rotate(-6 48 35)"
+            transform="rotate(-4 48 36)"
           />
-          {/* Paperclip */}
-          <path d="M 72 32 C 72 26 78 26 78 32 L 78 54 C 78 62 68 62 68 54 L 68 34" fill="none" stroke="#A99A88" strokeWidth="2" strokeLinecap="round" />
+          <path d="M 38 10 C 38 4 45 4 45 10 L 45 22 C 45 27 34 27 34 22 L 34 11" fill="none" stroke="#D8C6A5" strokeWidth="2.2" strokeLinecap="round" />
+          <text x="76" y="32" fontSize="16" fill="#D8C6A5">✨</text>
+          <text x="12" y="55" fontSize="14">🫶</text>
         </svg>
       );
 
@@ -264,19 +303,13 @@ function renderCategoryDoodle(assetKey) {
       // Multi-layer birthday cake with glowing candles
       return (
         <svg width="80" height="70" viewBox="0 0 100 90" fill="none">
-          {/* Stand */}
           <ellipse cx="50" cy="78" rx="38" ry="8" fill="#E8DFD1" stroke="#51483F" strokeWidth="2" />
-          {/* Bottom Tier */}
           <rect x="20" y="52" width="60" height="24" rx="4" fill="#F1EBDD" stroke="#51483F" strokeWidth="2.5" />
-          {/* Middle Tier */}
           <rect x="28" y="34" width="44" height="18" rx="3" fill="#FFFEFA" stroke="#51483F" strokeWidth="2.2" />
-          {/* Frosting drips */}
           <path d="M 28 39 Q 34 45 40 39 Q 46 45 52 39 Q 58 45 64 39 Q 70 45 72 39" fill="none" stroke="#D8C6A5" strokeWidth="2" strokeLinecap="round" />
-          {/* Candles */}
           <line x1="42" y1="34" x2="42" y2="22" stroke="#51483F" strokeWidth="2" strokeLinecap="round" />
           <line x1="50" y1="34" x2="50" y2="20" stroke="#51483F" strokeWidth="2" strokeLinecap="round" />
           <line x1="58" y1="34" x2="58" y2="22" stroke="#51483F" strokeWidth="2" strokeLinecap="round" />
-          {/* Candle Flames */}
           <ellipse cx="42" cy="18" rx="2.5" ry="4" fill="#D8C6A5" />
           <ellipse cx="50" cy="16" rx="3" ry="5" fill="#E8A87C" />
           <ellipse cx="58" cy="18" rx="2.5" ry="4" fill="#D8C6A5" />
